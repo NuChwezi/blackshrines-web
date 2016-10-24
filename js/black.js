@@ -26,8 +26,8 @@ function process_shrine(shrine, msg){
 $(document).ready(function(){
 
     var shrines = {
-        'worship': {
-            'class': 'worship',
+        'default': {
+            'class': 'default',
             'god': 'GOD',
             'action': 'DEFAULT'
         }
@@ -43,22 +43,22 @@ $(document).ready(function(){
         trigger.find('.chosen').text(choice);
         log('CHOICE|CATEGORY:' + category + '|CHOICE:' + choice);
         switch(category){
-            case 'shrine-worship-god': {
+            case 'shrine-default-god': {
                 var god = $('.shrine.'+shrine).data('god');
                 if(god != choice){
                     $('.shrine.'+shrine).empty();// resets shrine...
                     $('.shrine.'+shrine).removeClass('god-'+classify(god));
-                    shrines['worship']['god'] = choice;
+                    shrines['default']['god'] = choice;
                     $('.shrine.'+shrine).data('god',choice);
                     $('.shrine.'+shrine).addClass('god-'+classify(choice));
                 }
                 break;
             }
-            case 'shrine-worship-action': {
+            case 'shrine-default-action': {
                 var action = $('.shrine.'+shrine).data('action');
                 if(action != choice){
                     $('.shrine.'+shrine).removeClass('action-'+classify(action));
-                    shrines['worship']['action'] = choice;
+                    shrines['default']['action'] = choice;
                     $('.shrine.'+shrine).data('action',choice);
                     $('.shrine.'+shrine).addClass('action-'+classify(choice));
                 }
