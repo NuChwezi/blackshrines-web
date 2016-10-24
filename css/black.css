@@ -1,6 +1,6 @@
 body {
     background-color: black;
-    color: #af7878;
+    color: #772323;
 }
 
 a {
@@ -37,6 +37,13 @@ a:hover{
     font-size: xx-large;
 }
 
+/***************************
+ * THE GODS  : 
+ *
+ * color correspondences attempt to echo Hermetic principles (elements, see Liber 777)
+ *
+ * *************************/
+
 .shrine.god-GOD{
     background-color: #1d1c1c;
     color: #f7098e;
@@ -72,4 +79,13 @@ a:hover{
 .shrine.god-BELIAL{
     background-color: #1d231e;
     color: #f1d483;
+}
+.shrine.god-ANTI-CHRIST_666{
+    background-color: white;
+    color: #666666;
+    text-shadow: red 1px 2px;
+}
+.shrine.god-GUARDIAN_DAEMON{
+    background-color: #260833;
+    color: #d8e85a;
 }
