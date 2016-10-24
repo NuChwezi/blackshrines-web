@@ -1,0 +1,75 @@
+body {
+    background-color: black;
+    color: #af7878;
+}
+
+a {
+    color: #f0ad4e;
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+#header h1 {
+    font-weight: bold;
+}
+
+#content {
+    font-size: 27px;
+}
+
+#footer {
+    color: gray;
+    margin-top: 9px;
+}
+
+.shrine-body {
+    height: 45vh;
+    max-height: 45vh;
+    overflow-y: hidden;
+    word-wrap: break-word;
+}
+
+.shrine-msg {
+    display: block;
+    font-size: xx-large;
+}
+
+.shrine.god-GOD{
+    background-color: #1d1c1c;
+    color: #f7098e;
+}
+.shrine.god-SATAN{
+    background-color: #1d0707;
+    color: #af7878;
+}
+.shrine.god-SET{
+    background-color: #100404;
+    color: #ab00ff;
+}
+.shrine.god-TAHUTI{
+    background-color: #05050e;
+    color: #0cc77b;
+}
+.shrine.god-LUCIFER{
+    background-color: #ffff96;
+    color: #ff4900;
+}
+.shrine.god-NYAMIYONGA{
+    background-color: #130101;
+    color: #d4cdb9;
+}
+.shrine.god-ENKYA_YA_ENKYA{
+    background-color: #a6ebff;
+    color: #170115;
+}
+.shrine.god-LEVIATAN{
+    background-color: #003646;
+    color: #abc0ff;
+}
+.shrine.god-BELIAL{
+    background-color: #1d231e;
+    color: #f1d483;
+}
