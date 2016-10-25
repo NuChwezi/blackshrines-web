@@ -5,15 +5,31 @@ function log(msg){
 }
 
 var SOUND_RES = {
-    'fire': 'sounds/fire.wav'
+    'fire': 'sounds/fire.wav',
+    'GODS': {
+        'BEAST_666': [
+            'sounds/music/beast/ghost_bc-infestissumam.mp3',
+            'sounds/music/beast/ghost_bc-infestissumam.mp3',
+            ],
+        'SATAN': [
+            'sounds/music/satan/Gay Satanic Hippie - Bauchweh.mp3',
+            ],
+        'GOD': [
+            'sounds/music/god/Gay Satanic Hippie - Bach On Crack (Back On Crack Remix).mp3',
+            ],
+    }
 }
 
 var SOUND_PLAYERS = {
-    'fire': new Howl({
-              src: [SOUND_RES['fire']],
-              loop: true,
-                  })
+    'fire': new Howl({ src: [SOUND_RES['fire']], loop: true, }),
+    'GODS': {}
 }
+
+_.keys(SOUND_RES['GODS']).map(function(god){ 
+        var d = {}; 
+        d[god] = SOUND_RES['GODS'][god].map(function(file){ return new Howl({ src: [file], format: ['mp3'], loop: true }); });
+        SOUND_PLAYERS['GODS'] = _.extend(SOUND_PLAYERS['GODS'], d);
+});
 
 var SOUNDS = {
     shrine: {
@@ -41,7 +57,7 @@ function process_shrine(shrine, msg){
     log('SHRINE:'+ shrine['class'] + '|GOD:'+ shrine['god'] +'|ACTION:' + shrine['action'] + '|PAYLOAD:' + msg);
     var el_msg = $('<span/>', {'class': 'fire shrine-msg ' + shrine['action']}).text(msg);
     $('.shrine.' + shrine['class']).append(el_msg);
-    var dur = 666 * 10;
+    var dur = 666 * 66;
     $(el_msg).stop().animate({'top': '0'}, Math.floor(dur * 0.5)).fadeTo( dur, 0 , function() {
         el_msg.detach();
    });
@@ -144,6 +160,27 @@ $(document).ready(function(){
 
     }
 
+    // know when to play music, what music to play, and when to go silent...
+    var active_music = null;
+    function load_music(god){
+        var players = SOUND_PLAYERS['GODS'][god];
+
+        if(!players)
+            players = SOUND_PLAYERS['GODS']['GOD'];
+
+        if(!active_music){
+            active_music = players[Math.floor(Math.random()*players.length)];
+        }
+        else {
+            active_music.stop();
+            active_music = players[Math.floor(Math.random()*players.length)];
+        }
+
+        if(active_music){
+            active_music.play();
+        }
+    }
+
     $('.choose-list a').click(function(){
         var choice = $(this).text();
         var selector = $(this).closest('ul');
@@ -166,7 +203,7 @@ $(document).ready(function(){
                     cipher.text(mantra(classify(choice)));
                     $('.shrine.'+shrine).append(cipher);
                     $('.cipher.'+shrine).addClass('god-'+classify(choice));
-
+                    load_music(classify(choice));
                 }
                 break;
             }
@@ -194,26 +231,30 @@ $(document).ready(function(){
 
     $('.shrine-in:first').focus();
 
+    // know when to play music, what music to play, and when to go silent...
 	$('#collapse-shrine-shrine').on('hidden.bs.collapse', function (e) {
-		// stop fire sound...
-        setTimeout(function(){
-            SOUNDS.shrine['default']['fire'].pause();
-        },0);
+        SOUNDS.shrine['default']['fire'].pause();
+        if(active_music){
+            active_music.pause();
+        }
 	});
 	$('#collapse-shrine-shrine').on('shown.bs.collapse', function (e) {
-		// play fire sound...
-        setTimeout(function(){
-            SOUNDS.shrine['default']['fire'].play();
-        },0);
+        SOUNDS.shrine['default']['fire'].play();
+        if(active_music){
+            active_music.play();
+        }
 	});
-    SOUNDS.shrine['default']['fire'].play();
 
+    SOUNDS.shrine['default']['fire'].play();
+    load_music('GOD');
+
+    // hmm, no cheating...
     $(".shrine").on("contextmenu",function(e){
-                return false;
+        return false;
     });
     $(".shrine").bind('cut copy paste', function (e) {
         e.preventDefault();
-            });
+    });
 
 });
 
