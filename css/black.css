@@ -1,3 +1,12 @@
+@font-face {
+    font-family: Triballa;
+    src: url(fonts/triballa.ttf);
+}
+@font-face {
+    font-family: Pagani;
+    src: url(fonts/pagani.ttf);
+}
+
 body {
     background-color: black;
     color: #772323;
@@ -10,6 +19,11 @@ a {
 
 a:hover{
     text-decoration: none;
+}
+
+.banner {
+    font-family: Triballa;
+    font-size: larger;
 }
 
 #header h1 {
@@ -28,11 +42,23 @@ a:hover{
 .shrine-body {
     height: 45vh;
     max-height: 45vh;
+    padding: 0px;
+    background-color: black;
+    background-position: bottom;
+    background-repeat: repeat-x;
+    background-image: url(http://tympanus.net/codrops-playground/assets/images/posts/23145/fire.gif);
+}
+
+.shrine {
+    width: 100%;
+    height: 100%;
+    text-align: center;
     overflow-y: hidden;
     word-wrap: break-word;
 }
 
 .shrine-msg {
+    font-family: Pagani;
     display: block;
     font-size: xx-large;
 }
@@ -44,48 +70,85 @@ a:hover{
  *
  * *************************/
 
-.shrine.god-GOD{
-    background-color: #1d1c1c;
-    color: #f7098e;
-}
-.shrine.god-SATAN{
-    background-color: #1d0707;
-    color: #af7878;
-}
-.shrine.god-SET{
-    background-color: #100404;
-    color: #ab00ff;
-}
-.shrine.god-TAHUTI{
-    background-color: #05050e;
-    color: #0cc77b;
-}
-.shrine.god-LUCIFER{
-    background-color: #ffff96;
-    color: #ff4900;
-}
-.shrine.god-NYAMIYONGA{
-    background-color: #130101;
-    color: #d4cdb9;
-}
-.shrine.god-ENKYA_YA_ENKYA{
-    background-color: #a6ebff;
-    color: #170115;
-}
-.shrine.god-LEVIATAN{
-    background-color: #003646;
-    color: #abc0ff;
-}
-.shrine.god-BELIAL{
-    background-color: #1d231e;
-    color: #f1d483;
-}
-.shrine.god-ANTI-CHRIST_666{
-    background-color: white;
-    color: #666666;
-    text-shadow: red 1px 2px;
-}
-.shrine.god-GUARDIAN_DAEMON{
-    background-color: #260833;
-    color: #d8e85a;
-}
+    .shrine.god-GOD{
+        background-color: rgba(175, 19, 19, 0.32);
+        color: #cd4606;
+    }
+    .shrine.god-SATAN{
+        background-color: rgba(239, 17, 17, 0.63);
+        color: #ffd8d8;
+    }
+    .shrine.god-SET{
+        background-color: rgba(171, 0, 255, 0.26);
+        color: #ab00ff;
+    }
+    .shrine.god-TAHUTI{
+        background-color: rgba(12, 199, 123, 0.19);
+        color: #0cc77b;
+    }
+    .shrine.god-LUCIFER{
+        background-color: rgba(253, 253, 49, 0.56);
+        color: white;
+    }
+    .shrine.god-NYAMIYONGA{
+        background-color: rgba(156, 139, 125, 0.26);
+        color: #d4cdb9;
+    }
+    .shrine.god-ENKYA_YA_ENKYA{
+        background-color: rgba(166, 235, 255, 0.62);
+        color: #170115;
+    }
+    .shrine.god-LEVIATAN{
+        background-color: rgba(3, 45, 171, 0.67);
+        color: #abc0ff;
+    }
+    .shrine.god-BELIAL{
+        background-color: rgba(3, 49, 10, 0.64);
+        color: #f1d483;
+    }
+    .shrine.god-ANTI-CHRIST_666{
+        background-color: rgba(138, 57, 140, 0.2);
+        color: #eff511;
+    }
+    .shrine.god-GUARDIAN_DAEMON{
+        background-color: rgba(38, 8, 51, 0);
+        color: rgba(88, 253, 171, 0.97);
+    }
+
+
+
+    .fire {
+        animation: burn 1.5s linear infinite alternate;
+        -webkit-animation: burn 1.5s linear infinite alternate;
+        -moz-animation: burn 1.5s linear infinite alternate;
+        -ms-animation: burn 1.5s linear infinite alternate;        
+    }
+
+    @keyframes burn {
+        from { text-shadow: -.1em 0 .3em #fefcc9, .1em -.1em .3em #feec85, -.2em -.2em .4em #ffae34, .2em -.3em .3em #ec760c, -.2em -.4em .4em #cd4606, .1em -.5em .7em #973716, .1em -.7em .7em #451b0e; }
+        45%  { text-shadow: .1em -.2em .5em #fefcc9, .15em 0 .4em #feec85, -.1em -.25em .5em #ffae34, .15em -.45em .5em #ec760c, -.1em -.5em .6em #cd4606, 0 -.8em .6em #973716, .2em -1em .8em #451b0e; }
+        70%  { text-shadow: -.1em 0 .3em #fefcc9, .1em -.1em .3em #feec85, -.2em -.2em .6em #ffae34, .2em -.3em .4em #ec760c, -.2em -.4em .7em #cd4606, .1em -.5em .7em #973716, .1em -.7em .9em #451b0e; }
+        to   { text-shadow: -.1em -.2em .6em #fefcc9, -.15em 0 .6em #feec85, .1em -.25em .6em #ffae34, -.15em -.45em .5em #ec760c, .1em -.5em .6em #cd4606, 0 -.8em .6em #973716, -.2em -1em .8em #451b0e; }						
+    }
+
+    @-webkit-keyframes burn {
+        from { text-shadow: -.1em 0 .3em #fefcc9, .1em -.1em .3em #feec85, -.2em -.2em .4em #ffae34, .2em -.3em .3em #ec760c, -.2em -.4em .4em #cd4606, .1em -.5em .7em #973716, .1em -.7em .7em #451b0e; }
+        45%  { text-shadow: .1em -.2em .5em #fefcc9, .15em 0 .4em #feec85, -.1em -.25em .5em #ffae34, .15em -.45em .5em #ec760c, -.1em -.5em .6em #cd4606, 0 -.8em .6em #973716, .2em -1em .8em #451b0e; }
+        70%  { text-shadow: -.1em 0 .3em #fefcc9, .1em -.1em .3em #feec85, -.2em -.2em .6em #ffae34, .2em -.3em .4em #ec760c, -.2em -.4em .7em #cd4606, .1em -.5em .7em #973716, .1em -.7em .9em #451b0e; }
+        to   { text-shadow: -.1em -.2em .6em #fefcc9, -.15em 0 .6em #feec85, .1em -.25em .6em #ffae34, -.15em -.45em .5em #ec760c, .1em -.5em .6em #cd4606, 0 -.8em .6em #973716, -.2em -1em .8em #451b0e; }						
+    }
+
+    @-moz-keyframes burn {
+        from { text-shadow: -.1em 0 .3em #fefcc9, .1em -.1em .3em #feec85, -.2em -.2em .4em #ffae34, .2em -.3em .3em #ec760c, -.2em -.4em .4em #cd4606, .1em -.5em .7em #973716, .1em -.7em .7em #451b0e; }
+        45%  { text-shadow: .1em -.2em .5em #fefcc9, .15em 0 .4em #feec85, -.1em -.25em .5em #ffae34, .15em -.45em .5em #ec760c, -.1em -.5em .6em #cd4606, 0 -.8em .6em #973716, .2em -1em .8em #451b0e; }
+        70%  { text-shadow: -.1em 0 .3em #fefcc9, .1em -.1em .3em #feec85, -.2em -.2em .6em #ffae34, .2em -.3em .4em #ec760c, -.2em -.4em .7em #cd4606, .1em -.5em .7em #973716, .1em -.7em .9em #451b0e; }
+        to   { text-shadow: -.1em -.2em .6em #fefcc9, -.15em 0 .6em #feec85, .1em -.25em .6em #ffae34, -.15em -.45em .5em #ec760c, .1em -.5em .6em #cd4606, 0 -.8em .6em #973716, -.2em -1em .8em #451b0e; }						
+    }
+
+    @-ms-keyframes burn {
+        from { text-shadow: -.1em 0 .3em #fefcc9, .1em -.1em .3em #feec85, -.2em -.2em .4em #ffae34, .2em -.3em .3em #ec760c, -.2em -.4em .4em #cd4606, .1em -.5em .7em #973716, .1em -.7em .7em #451b0e; }
+        45%  { text-shadow: .1em -.2em .5em #fefcc9, .15em 0 .4em #feec85, -.1em -.25em .5em #ffae34, .15em -.45em .5em #ec760c, -.1em -.5em .6em #cd4606, 0 -.8em .6em #973716, .2em -1em .8em #451b0e; }
+        70%  { text-shadow: -.1em 0 .3em #fefcc9, .1em -.1em .3em #feec85, -.2em -.2em .6em #ffae34, .2em -.3em .4em #ec760c, -.2em -.4em .7em #cd4606, .1em -.5em .7em #973716, .1em -.7em .9em #451b0e; }
+        to   { text-shadow: -.1em -.2em .6em #fefcc9, -.15em 0 .6em #feec85, .1em -.25em .6em #ffae34, -.15em -.45em .5em #ec760c, .1em -.5em .6em #cd4606, 0 -.8em .6em #973716, -.2em -1em .8em #451b0e; }						
+    }
+

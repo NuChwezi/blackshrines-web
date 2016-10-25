@@ -10,7 +10,7 @@ function classify(name){
 
 function process_shrine(shrine, msg){
     log('SHRINE:'+ shrine['class'] + '|GOD:'+ shrine['god'] +'|ACTION:' + shrine['action'] + '|PAYLOAD:' + msg);
-    var el_msg = $('<span/>', {'class': 'shrine-msg ' + shrine['action']}).text(msg);
+    var el_msg = $('<span/>', {'class': 'fire shrine-msg ' + shrine['action']}).text(msg);
     $('.shrine.' + shrine['class']).append(el_msg);
     var opacity = 1, dur = 666 * 100, steps = 666;
     var incr = opacity * 1.0 / (steps||1);
