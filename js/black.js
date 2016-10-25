@@ -9,13 +9,71 @@ var SOUND_RES = {
     'GODS': {
         'BEAST_666': [
             'sounds/music/beast/ghost_bc-infestissumam.mp3',
-            'sounds/music/beast/ghost_bc-infestissumam.mp3',
+            'sounds/music/beast/Eros Necropsique - Introduction.mp3',
+            'sounds/music/beast/666Mafia - 666ClubHouse.mp3',
+            'sounds/music/beast/Organics - Michael Stearns.mp3',
+            'sounds/music/beast/Gregorian- The fourhorsemen.mp3',
+            'sounds/music/beast/DJ Zany and MC DV8 - The Anthem.mp3',
             ],
         'SATAN': [
             'sounds/music/satan/Gay Satanic Hippie - Bauchweh.mp3',
+            'sounds/music/satan/The Serpent - Ksiazki.mp3',
+            'sounds/music/satan/Blut Aus Nord - The Howling Of God.mp3',
+            'sounds/music/satan/Daemonarch - The Seventh Daemonarch.mp3',
+            'sounds/music/satan/D12 - Devils Night.mp3',
+            'sounds/music/satan/Gregorian - Ave Satani (the Omen).mp3',
+            ],
+        'LUCIFER': [
+            'sounds/music/lucifer/Ghost - He Is.mp3',
+            'sounds/music/lucifer/Era - Divano.mp3',
+            'sounds/music/lucifer/Magic voices - Right till the end.mp3',
+            'sounds/music/lucifer/Mythos - June.mp3',
+            'sounds/music/lucifer/Vangelis - chariots of fire.mp3',
+            'sounds/music/lucifer/Wildstylez ft. isaac - lost in music.mp3',
+            ],
+        'DAEMON': [
+            'sounds/music/daemon/Tron Sepia - Abyss (VIP).mp3',
+            'sounds/music/daemon/Etnoscope - Hidden Track.mp3',
+            'sounds/music/daemon/Terror Squad - Tripple Threat.mp3',
+            'sounds/music/daemon/Pavo_-_Raven.mp3',
+            'sounds/music/daemon/Brennan Heart - we are possessed ( headhunterz remix ).mp3',
+            ],
+        'TAHUTI': [
+            'sounds/music/tahuti/Enigma - Goodbye Milky Way.mp3',
+            'sounds/music/tahuti/Dead Can Dance - Agape.mp3',
+            'sounds/music/tahuti/Wonderful Chill Out Music - The Ocean.mp3',
+            ],
+        'LEVIATAN': [
+            'sounds/music/leviatan/Enigma - Principles Of Lust.mp3',
+            'sounds/music/leviatan/Iacchus - Silver Linings.mp3',
+            'sounds/music/leviatan/David Guetta & Nicky Romero Feat Sia - Wild Ones Two (Wildstylez bootleg).mp3',
+            ],
+        'BELIAL': [
+            'sounds/music/belial/Eros Necropsique - Communion.mp3',
+            'sounds/music/belial/Blut Aus Nord - Ultima Thule - My Prayer Beyond Ginnungagap.mp3',
+            'sounds/music/belial/Minds Of Infinity - First Human.mp3',
+            ],
+        'ENKYA_YA_ENKYA': [
+            'sounds/music/enkya_ya_enkya/Deep Forest - New Dawn.mp3',
+            'sounds/music/enkya_ya_enkya/Dead Can Dance - Ariadne.mp3',
+            'sounds/music/enkya_ya_enkya/The Kamkars - Chant of Drums.mp3',
+            'sounds/music/enkya_ya_enkya/XTribe - African Drum.mp3',
+            ],
+        'NYAMIYONGA': [
+            'sounds/music/nyamiyonga/Monumentum - Fade To Gray.mp3',
+            'sounds/music/nyamiyonga/Anjey Satori - Ritual Woodoo.mp3',
+            'sounds/music/nyamiyonga/Kingdom of Blood- The Return of Darkness and Abyss The World.mp3',
+            'sounds/music/nyamiyonga/Kingdom of Blood - Hell Gate.mp3',
+            'sounds/music/nyamiyonga/Kingdom of Blood - Voices of Pain in Hell.mp3',
             ],
         'GOD': [
             'sounds/music/god/Gay Satanic Hippie - Bach On Crack (Back On Crack Remix).mp3',
+            'sounds/music/god/Hexentanz - Bringer of the Lucifer.mp3',
+            'sounds/music/god/Gregorian_-_Uninvited.mp3',
+            'sounds/music/god/Gregorian - In The Air Tonight.mp3',
+            'sounds/music/god/Headhunterz - Last of the mohicans.mp3',
+            'sounds/music/god/Shpongle - Invocation.mp3',
+            'sounds/music/god/Shpongle - Connoisseur Of Hallucinations.mp3',
             ],
     }
 }
@@ -27,7 +85,13 @@ var SOUND_PLAYERS = {
 
 _.keys(SOUND_RES['GODS']).map(function(god){ 
         var d = {}; 
-        d[god] = SOUND_RES['GODS'][god].map(function(file){ return new Howl({ src: [file], format: ['mp3'], loop: true }); });
+        d[god] = SOUND_RES['GODS'][god].map(function(file){ 
+            // for lazy loading...
+            var loadPlayer = function(){
+                return new Howl({ src: [file], format: ['mp3'], loop: true }); 
+            };
+            return loadPlayer;
+        });
         SOUND_PLAYERS['GODS'] = _.extend(SOUND_PLAYERS['GODS'], d);
 });
 
@@ -151,6 +215,8 @@ function mantra(god){
 
 $(document).ready(function(){
 
+    var flag_play_music = true;
+
     var shrines = {
         'default': {
             'class': 'default',
@@ -169,12 +235,15 @@ $(document).ready(function(){
             players = SOUND_PLAYERS['GODS']['GOD'];
 
         if(!active_music){
-            active_music = players[Math.floor(Math.random()*players.length)];
+            active_music = players[Math.floor(Math.random()*players.length)]();
         }
         else {
             active_music.stop();
-            active_music = players[Math.floor(Math.random()*players.length)];
+            active_music = players[Math.floor(Math.random()*players.length)]();
         }
+
+        if(!flag_play_music)
+            return;
 
         if(active_music){
             active_music.play();
@@ -204,6 +273,7 @@ $(document).ready(function(){
                     $('.shrine.'+shrine).append(cipher);
                     $('.cipher.'+shrine).addClass('god-'+classify(choice));
                     load_music(classify(choice));
+                    $('.shrine-in:first').focus();
                 }
                 break;
             }
@@ -214,6 +284,7 @@ $(document).ready(function(){
                     shrines['default']['action'] = choice;
                     $('.shrine.'+shrine).data('action',choice);
                     $('.shrine.'+shrine).addClass('action-'+classify(choice));
+                    $('.shrine-in:first').focus();
                 }
                 break;
             }
@@ -229,24 +300,37 @@ $(document).ready(function(){
         $(this).val(null);
     });
 
-    $('.shrine-in:first').focus();
 
     // know when to play music, what music to play, and when to go silent...
 	$('#collapse-shrine-shrine').on('hidden.bs.collapse', function (e) {
+        if(!flag_play_music)
+            return;
+
         SOUNDS.shrine['default']['fire'].pause();
         if(active_music){
             active_music.pause();
         }
 	});
 	$('#collapse-shrine-shrine').on('shown.bs.collapse', function (e) {
+        $('.shrine-in:first').focus();
+
+        if(!flag_play_music)
+            return;
+
         SOUNDS.shrine['default']['fire'].play();
+
         if(active_music){
             active_music.play();
         }
+        else
+            load_music('GOD'); // default...
+
 	});
 
-    SOUNDS.shrine['default']['fire'].play();
-    load_music('GOD');
+    $('#music_switch').change(function(){
+        flag_play_music = $(this).prop('checked');
+    });
+
 
     // hmm, no cheating...
     $(".shrine").on("contextmenu",function(e){

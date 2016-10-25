@@ -54,6 +54,11 @@ a:hover{
     text-decoration: none;
 }
 
+input.check-switch{
+    width: 30px;
+    height: 30px;
+}
+
 .banner {
     font-family: Triballa;
     font-size: larger;
