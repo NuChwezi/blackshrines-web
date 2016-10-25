@@ -7,6 +7,39 @@
     src: url(fonts/pagani.ttf);
 }
 
+@font-face {
+    font-family: cipher_roofnrmzgr;
+    src: url(fonts/cipher_roofnrmzgr.ttf);
+}
+@font-face {
+    font-family: cipher_MftHlgs;
+    src: url(fonts/cipher_MftHlgs.ttf);
+}
+@font-face {
+    font-family: cipher_orevi321;
+    src: url(fonts/cipher_orevi321.ttf);
+}
+@font-face {
+    font-family: cipher_wzttvih;
+    src: url(fonts/cipher_wzttvih.ttf);
+}
+@font-face {
+    font-family: cipher_tlvgrx;
+    src: url(fonts/cipher_tlvgrx.ttf);
+}
+@font-face {
+    font-family: cipher_vmlxs;
+    src: url(fonts/cipher_vmlxs.ttf);
+}
+@font-face {
+    font-family: cipher_svyivd;
+    src: url(fonts/cipher_svyivd.ttf);
+}
+@font-face {
+    font-family: cipher_lxxfog;
+    src: url(fonts/cipher_lxxfog.ttf);
+}
+
 body {
     background-color: black;
     color: #772323;
@@ -40,13 +73,14 @@ a:hover{
 }
 
 .shrine-body {
-    height: 45vh;
-    max-height: 45vh;
+    height: 55vh;
+    max-height: 55vh;
     padding: 0px;
     background-color: black;
     background-position: bottom;
     background-repeat: repeat-x;
-    background-image: url(http://tympanus.net/codrops-playground/assets/images/posts/23145/fire.gif);
+    background-image: url(fire.gif);
+    overflow-y: hidden;
 }
 
 .shrine {
@@ -55,12 +89,26 @@ a:hover{
     text-align: center;
     overflow-y: hidden;
     word-wrap: break-word;
+    position: relative;
 }
+
+.cipher {
+    font-family: cipher_roofnrmzgr;
+    font-weight: bold;
+    word-wrap: break-word;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
 
 .shrine-msg {
     font-family: Pagani;
     display: block;
     font-size: xx-large;
+    bottom: 0;
+    position: absolute;
+    width: 100%;
 }
 
 /***************************
@@ -74,45 +122,97 @@ a:hover{
         background-color: rgba(175, 19, 19, 0.32);
         color: #cd4606;
     }
+    .god-GOD .cipher{
+        color:#cd0606;
+    }
     .shrine.god-SATAN{
         background-color: rgba(239, 17, 17, 0.63);
         color: #ffd8d8;
+    }
+    .god-SATAN .cipher{
+        color: #ffd8d8;
+        font-family: cipher_wzttvih;
     }
     .shrine.god-SET{
         background-color: rgba(171, 0, 255, 0.26);
         color: #ab00ff;
     }
+    .god-SET .cipher{
+        color: #ab00ff;
+        font-family: cipher_vmlxs;
+    }
     .shrine.god-TAHUTI{
         background-color: rgba(12, 199, 123, 0.19);
         color: #0cc77b;
+    }
+    .god-TAHUTI .cipher{
+        color: #0cc77b;
+        font-family: cipher_MftHlgs;
     }
     .shrine.god-LUCIFER{
         background-color: rgba(253, 253, 49, 0.56);
         color: white;
     }
+    .god-LUCIFER .cipher{
+        color: #4e0e07;
+        font-family: cipher_roofnrmzgr;
+    }
     .shrine.god-NYAMIYONGA{
         background-color: rgba(156, 139, 125, 0.26);
         color: #d4cdb9;
     }
+    .god-NYAMIYONGA .cipher{
+        color: #d4cdb9;
+        font-family: cipher_orevi321;
+        font-size: 50px;
+    }
     .shrine.god-ENKYA_YA_ENKYA{
         background-color: rgba(166, 235, 255, 0.62);
+        color: #170115;
+    }
+    .god-ENKYA_YA_ENKYA .cipher{
         color: #170115;
     }
     .shrine.god-LEVIATAN{
         background-color: rgba(3, 45, 171, 0.67);
         color: #abc0ff;
     }
+    .god-LEVIATAN .cipher{
+        color: #abc0ff;
+        font-family: cipher_svyivd;
+        font-size: 50px;
+    }
     .shrine.god-BELIAL{
         background-color: rgba(3, 49, 10, 0.64);
         color: #f1d483;
     }
-    .shrine.god-ANTI-CHRIST_666{
+    .god-BELIAL .cipher{
+        color: #f1d483;
+        font-family: cipher_lxxfog;
+    }
+    .shrine.god-BEAST_666{
         background-color: rgba(138, 57, 140, 0.2);
         color: #eff511;
     }
-    .shrine.god-GUARDIAN_DAEMON{
+    .god-BEAST_666 .cipher{
+        color: #eff511;
+    }
+    .shrine.god-DAEMON{
         background-color: rgba(38, 8, 51, 0);
         color: rgba(88, 253, 171, 0.97);
+    }
+    .god-DAEMON .cipher{
+        color:rgba(253, 88, 88, 0.97);
+        font-family: cipher_tlvgrx;
+        font-size: 80px;
+    }
+    @media (max-width:768px) {
+        .god-DAEMON .cipher{
+            font-size: 36px;
+        }
+        .god-NYAMIYONGA .cipher{
+            font-size: 36px;
+        }
     }
 
 
