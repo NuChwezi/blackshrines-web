@@ -1,7 +1,7 @@
 var DEBUG = true;
 function log(msg){
     if(DEBUG)
-    console.log(msg);
+        console.log(msg);
 }
 
 var SOUND_RES = {
@@ -14,7 +14,7 @@ var SOUND_RES = {
             'sounds/music/beast/Organics - Michael Stearns.mp3',
             'sounds/music/beast/Gregorian- The fourhorsemen.mp3',
             'sounds/music/beast/DJ Zany and MC DV8 - The Anthem.mp3',
-            ],
+        ],
         'SATAN': [
             'sounds/music/satan/Gay Satanic Hippie - Bauchweh.mp3',
             'sounds/music/satan/The Serpent - Ksiazki.mp3',
@@ -22,7 +22,7 @@ var SOUND_RES = {
             'sounds/music/satan/Daemonarch - The Seventh Daemonarch.mp3',
             'sounds/music/satan/D12 - Devils Night.mp3',
             'sounds/music/satan/Gregorian - Ave Satani (the Omen).mp3',
-            ],
+        ],
         'LUCIFER': [
             'sounds/music/lucifer/Ghost - He Is.mp3',
             'sounds/music/lucifer/Era - Divano.mp3',
@@ -30,42 +30,42 @@ var SOUND_RES = {
             'sounds/music/lucifer/Mythos - June.mp3',
             'sounds/music/lucifer/Vangelis - chariots of fire.mp3',
             'sounds/music/lucifer/Wildstylez ft. isaac - lost in music.mp3',
-            ],
+        ],
         'DAEMON': [
             'sounds/music/daemon/Tron Sepia - Abyss (VIP).mp3',
             'sounds/music/daemon/Etnoscope - Hidden Track.mp3',
             'sounds/music/daemon/Terror Squad - Tripple Threat.mp3',
             'sounds/music/daemon/Pavo_-_Raven.mp3',
             'sounds/music/daemon/Brennan Heart - we are possessed ( headhunterz remix ).mp3',
-            ],
+        ],
         'TAHUTI': [
             'sounds/music/tahuti/Enigma - Goodbye Milky Way.mp3',
             'sounds/music/tahuti/Dead Can Dance - Agape.mp3',
             'sounds/music/tahuti/Wonderful Chill Out Music - The Ocean.mp3',
-            ],
+        ],
         'LEVIATAN': [
             'sounds/music/leviatan/Enigma - Principles Of Lust.mp3',
             'sounds/music/leviatan/Iacchus - Silver Linings.mp3',
             'sounds/music/leviatan/David Guetta & Nicky Romero Feat Sia - Wild Ones Two (Wildstylez bootleg).mp3',
-            ],
+        ],
         'BELIAL': [
             'sounds/music/belial/Eros Necropsique - Communion.mp3',
             'sounds/music/belial/Blut Aus Nord - Ultima Thule - My Prayer Beyond Ginnungagap.mp3',
             'sounds/music/belial/Minds Of Infinity - First Human.mp3',
-            ],
+        ],
         'ENKYA_YA_ENKYA': [
             'sounds/music/enkya_ya_enkya/Deep Forest - New Dawn.mp3',
             'sounds/music/enkya_ya_enkya/Dead Can Dance - Ariadne.mp3',
             'sounds/music/enkya_ya_enkya/The Kamkars - Chant of Drums.mp3',
             'sounds/music/enkya_ya_enkya/XTribe - African Drum.mp3',
-            ],
+        ],
         'NYAMIYONGA': [
             'sounds/music/nyamiyonga/Monumentum - Fade To Gray.mp3',
             'sounds/music/nyamiyonga/Anjey Satori - Ritual Woodoo.mp3',
             'sounds/music/nyamiyonga/Kingdom of Blood- The Return of Darkness and Abyss The World.mp3',
             'sounds/music/nyamiyonga/Kingdom of Blood - Hell Gate.mp3',
             'sounds/music/nyamiyonga/Kingdom of Blood - Voices of Pain in Hell.mp3',
-            ],
+        ],
         'GOD': [
             'sounds/music/god/Gay Satanic Hippie - Bach On Crack (Back On Crack Remix).mp3',
             'sounds/music/god/Hexentanz - Bringer of the Lucifer.mp3',
@@ -74,7 +74,7 @@ var SOUND_RES = {
             'sounds/music/god/Headhunterz - Last of the mohicans.mp3',
             'sounds/music/god/Shpongle - Invocation.mp3',
             'sounds/music/god/Shpongle - Connoisseur Of Hallucinations.mp3',
-            ],
+        ],
     }
 }
 
@@ -84,15 +84,15 @@ var SOUND_PLAYERS = {
 }
 
 _.keys(SOUND_RES['GODS']).map(function(god){ 
-        var d = {}; 
-        d[god] = SOUND_RES['GODS'][god].map(function(file){ 
-            // for lazy loading...
-            var loadPlayer = function(){
-                return new Howl({ src: [file], format: ['mp3'], loop: true }); 
-            };
-            return loadPlayer;
-        });
-        SOUND_PLAYERS['GODS'] = _.extend(SOUND_PLAYERS['GODS'], d);
+    var d = {}; 
+    d[god] = SOUND_RES['GODS'][god].map(function(file){ 
+        // for lazy loading...
+        var loadPlayer = function(){
+            return new Howl({ src: [file], format: ['mp3'], loop: true }); 
+        };
+        return loadPlayer;
+    });
+    SOUND_PLAYERS['GODS'] = _.extend(SOUND_PLAYERS['GODS'], d);
 });
 
 var SOUNDS = {
@@ -124,7 +124,7 @@ function process_shrine(shrine, msg){
     var dur = 666 * 66;
     $(el_msg).stop().animate({'top': '0'}, Math.floor(dur * 0.5)).fadeTo( dur, 0 , function() {
         el_msg.detach();
-   });
+    });
 }
 
 function mantra(god){
@@ -257,7 +257,7 @@ $(document).ready(function(){
         var category = selector.data('choose');
         var shrine = selector.data('shrine');
         var trigger = $(this).closest('ul').siblings('button')
-        trigger.find('.chosen').text(choice);
+            trigger.find('.chosen').text(choice);
         log('CHOICE|CATEGORY:' + category + '|CHOICE:' + choice);
         switch(category){
             case 'shrine-default-god': {
@@ -297,13 +297,13 @@ $(document).ready(function(){
         var msg = $(this).val();
         var target_shrine = $(this).data('shrine');
         log('MSG|SHRINE: ' + target_shrine + '|MSG:' + msg)
-        process_shrine(shrines[target_shrine], msg)
-        $(this).val(null);
+            process_shrine(shrines[target_shrine], msg)
+            $(this).val(null);
     });
 
 
     // know when to play music, what music to play, and when to go silent...
-	$('#collapse-shrine-shrine').on('hidden.bs.collapse', function (e) {
+    $('#collapse-shrine-shrine').on('hidden.bs.collapse', function (e) {
 
         if(flag_play_fire) {
             SOUNDS.shrine['default']['fire'].pause();
@@ -314,8 +314,8 @@ $(document).ready(function(){
                 active_music.pause();
             }
         }
-	});
-	$('#collapse-shrine-shrine').on('shown.bs.collapse', function (e) {
+    });
+    $('#collapse-shrine-shrine').on('shown.bs.collapse', function (e) {
         $('.shrine-in:first').focus();
 
         if(flag_play_fire) {
@@ -330,7 +330,7 @@ $(document).ready(function(){
                 load_music('GOD'); // default...
         }
 
-	});
+    });
 
     $('#music_switch').change(function(){
         flag_play_music = $(this).prop('checked');
@@ -352,12 +352,12 @@ $(document).ready(function(){
 
 // just a plugin (src: SO)
 $.fn.enterKey = function(fnc) {
-  return this.each(function() {
-    $(this).keypress(function(ev) {
-      var keycode = (ev.keyCode ? ev.keyCode : ev.which);
-      if (keycode == '13') {
-        fnc.call(this, ev);
-      }
+    return this.each(function() {
+        $(this).keypress(function(ev) {
+            var keycode = (ev.keyCode ? ev.keyCode : ev.which);
+            if (keycode == '13') {
+                fnc.call(this, ev);
+            }
+        })
     })
-  })
 }
