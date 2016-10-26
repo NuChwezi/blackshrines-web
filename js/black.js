@@ -216,6 +216,7 @@ function mantra(god){
 $(document).ready(function(){
 
     var flag_play_music = true;
+    var flag_play_fire = true;
 
     var shrines = {
         'default': {
@@ -303,32 +304,39 @@ $(document).ready(function(){
 
     // know when to play music, what music to play, and when to go silent...
 	$('#collapse-shrine-shrine').on('hidden.bs.collapse', function (e) {
-        if(!flag_play_music)
-            return;
 
-        SOUNDS.shrine['default']['fire'].pause();
-        if(active_music){
-            active_music.pause();
+        if(flag_play_fire) {
+            SOUNDS.shrine['default']['fire'].pause();
+        }
+
+        if(flag_play_music) {
+            if(active_music){
+                active_music.pause();
+            }
         }
 	});
 	$('#collapse-shrine-shrine').on('shown.bs.collapse', function (e) {
         $('.shrine-in:first').focus();
 
-        if(!flag_play_music)
-            return;
-
-        SOUNDS.shrine['default']['fire'].play();
-
-        if(active_music){
-            active_music.play();
+        if(flag_play_fire) {
+            SOUNDS.shrine['default']['fire'].play();
         }
-        else
-            load_music('GOD'); // default...
+
+        if(flag_play_music) {
+            if(active_music){
+                active_music.play();
+            }
+            else
+                load_music('GOD'); // default...
+        }
 
 	});
 
     $('#music_switch').change(function(){
         flag_play_music = $(this).prop('checked');
+    });
+    $('#fire_switch').change(function(){
+        flag_play_fire = $(this).prop('checked');
     });
 
 
