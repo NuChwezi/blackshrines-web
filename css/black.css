@@ -1,3 +1,7 @@
+/*
+ * Occult CIPHERS - languages of the black gods.
+ *
+ * */
 @font-face {
     font-family: Triballa;
     src: url(fonts/triballa.ttf);
@@ -39,6 +43,24 @@
     font-family: cipher_lxxfog;
     src: url(fonts/cipher_lxxfog.ttf);
 }
+
+
+/*
+ * OFFERINGS, cREATURES, things to offer to the gods, or what the gods would offer to us.
+ *
+ * */
+
+
+@font-face {
+    font-family: birds;
+    src: url(fonts/symbols/birds.ttf);
+}
+
+@font-face {
+    font-family: cherub;
+    src: url(fonts/symbols/cherub.ttf);
+}
+
 
 body {
     background-color: black;
@@ -120,6 +142,7 @@ input.check-switch{
     width: 100%;
 }
 
+
 /***************************
  * THE GODS  : 
  *
@@ -135,12 +158,23 @@ input.check-switch{
     .god-GOD .cipher{
         color:#cd0606;
     }
+    .god-msg {
+        font-family: cipher_roofnrmzgr;
+        display: block;
+        font-size: xx-large;
+        position: absolute;
+        width: auto;
+    }
     .shrine.god-SATAN{
         background-color: rgba(239, 17, 17, 0.63);
         color: #ffd8d8;
         border-color:#ffd8d8;
     }
     .god-SATAN .cipher{
+        color: #ffd8d8;
+        font-family: cipher_wzttvih;
+    }
+    .god-SATAN .god-msg{
         color: #ffd8d8;
         font-family: cipher_wzttvih;
     }
@@ -153,12 +187,20 @@ input.check-switch{
         color: #ab00ff;
         font-family: cipher_vmlxs;
     }
+    .god-SET .god-msg{
+        color: #ab00ff;
+        font-family: cipher_vmlxs;
+    }
     .shrine.god-TAHUTI{
         background-color: rgba(12, 199, 123, 0.19);
         color: #0cc77b;
         border-color:#0cc77b;
     }
     .god-TAHUTI .cipher{
+        color: #0cc77b;
+        font-family: cipher_MftHlgs;
+    }
+    .god-TAHUTI .god-msg{
         color: #0cc77b;
         font-family: cipher_MftHlgs;
     }
@@ -171,12 +213,20 @@ input.check-switch{
         color: #4e0e07;
         font-family: cipher_roofnrmzgr;
     }
+    .god-LUCIFER .god-msg{
+        color: #4e0e07;
+        font-family: cipher_roofnrmzgr;
+    }
     .shrine.god-NYAMIYONGA{
         background-color: rgba(156, 139, 125, 0.26);
         color: #d4cdb9;
         border-color:#d4cdb9;
     }
     .god-NYAMIYONGA .cipher{
+        color: #d4cdb9;
+        font-family: cipher_orevi321;
+        font-size: 50px;
+    .god-NYAMIYONGA .god-msg{
         color: #d4cdb9;
         font-family: cipher_orevi321;
         font-size: 50px;
@@ -189,12 +239,19 @@ input.check-switch{
     .god-ENKYA_YA_ENKYA .cipher{
         color: #170115;
     }
+    .god-ENKYA_YA_ENKYA .god-msg{
+        color: #170115;
+    }
     .shrine.god-LEVIATAN{
         background-color: rgba(3, 45, 171, 0.67);
         color: #abc0ff;
         border-color:#abc0ff;
     }
     .god-LEVIATAN .cipher{
+        color: #abc0ff;
+        font-family: cipher_svyivd;
+        font-size: 50px;
+    .god-LEVIATAN .god-msg{
         color: #abc0ff;
         font-family: cipher_svyivd;
         font-size: 50px;
@@ -208,6 +265,10 @@ input.check-switch{
         color: #f1d483;
         font-family: cipher_lxxfog;
     }
+    .god-BELIAL .god-msg{
+        color: #f1d483;
+        font-family: cipher_lxxfog;
+    }
     .shrine.god-BEAST_666{
         background-color: rgba(138, 57, 140, 0.2);
         color: #eff511;
@@ -216,12 +277,19 @@ input.check-switch{
     .god-BEAST_666 .cipher{
         color: #eff511;
     }
+    .god-BEAST_666 .god-msg{
+        color: #eff511;
+    }
     .shrine.god-DAEMON{
         background-color: rgba(38, 8, 51, 0);
         color: rgba(111, 82, 61, 0.97);
         border-color: rgba(109, 115, 113, 0.97);
     }
     .god-DAEMON .cipher{
+        color: rgba(109, 115, 113, 0.97);
+        font-family: cipher_tlvgrx;
+        font-size: 80px;
+    .god-DAEMON .god-msg{
         color: rgba(109, 115, 113, 0.97);
         font-family: cipher_tlvgrx;
         font-size: 80px;

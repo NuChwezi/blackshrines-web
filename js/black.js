@@ -117,9 +117,25 @@ function classify(name){
     return name.replace(/ /gi,'_');
 }
 
+function is_offertory(msg){
+    return msg.toLowerCase().match("i offer.*you");
+}
+function make_offertory(msg){
+    var parts = msg.split(/.*i offer.*you/);
+    var offertory = parts[1].trim();
+    log('SHRINE:'+ shrine['class'] + '|GOD:'+ shrine['god'] +'|ACTION:' + shrine['action'] + '|OFFERTORY:' + offertory);
+    var el_msg = $('<span/>', {'class': 'fire shrine-msg ' + shrine['action']}).text('i offer to you ' + offertory);
+    el_msg.prepend($('<span/>',{'style': 'font-size:3em; font-family:cherub'}).text('c'));
+    el_msg.append($('<span/>',{'style': 'font-size:3em; font-family:cherub'}).text('b'));
+    return el_msg;
+}
+
 function process_shrine(shrine, msg){
     log('SHRINE:'+ shrine['class'] + '|GOD:'+ shrine['god'] +'|ACTION:' + shrine['action'] + '|PAYLOAD:' + msg);
     var el_msg = $('<span/>', {'class': 'fire shrine-msg ' + shrine['action']}).text(msg);
+    if(is_offertory(msg)){
+        el_msg = make_offertory(msg);
+    }
     $('.shrine.' + shrine['class']).append(el_msg);
     var dur = 666 * 66;
     $(el_msg).stop().animate({'top': '0'}, Math.floor(dur * 0.5)).fadeTo( dur, 0 , function() {
@@ -213,10 +229,104 @@ function mantra(god){
 
 }
 
+var rand = function(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+};
+ 
+var generateWeighedList = function(list, weight) {
+    var weighed_list = [];
+     
+    // Loop over weights
+    for (var i = 0; i < weight.length; i++) {
+        var multiples = Math.floor(weight[i]); // * 100;
+         
+        // Loop over the list of items
+        for (var j = 0; j < multiples; j++) {
+            weighed_list.push(list[i]);
+        }
+    }
+     
+    return weighed_list;
+};
+ 
+
+function randomMessage(keys){
+	var list = 'etaoinsrhdlucmfywgpbvkxqjz'.split('');
+
+    /*
+    var frequencies = [12.0,9.10,8.12,7.68,7.31,6.95,6.28,6.02,5.92,4.32,3.98,2.88,2.71,2.61,2.30,2.11,2.09,2.03,1.82,1.49,1.11,0.69,0.17,0.11,0.10,0.07];
+    var freq_sum = _.reduce(frequencies, function(memo, num){ return memo + num; }, 0);
+	var weight = frequencies.map(function(n){ return n * 1000 / freq_sum });
+	var weighed_list = generateWeighedList(list, weight);
+	 
+	//var random_num = rand(0, weighed_list.length-1);
+    */
+
+    var msg = '';
+
+    for(i=0;i<keys.length;i++){
+        var random_num = keys[i];
+        msg += list[random_num];
+    }
+
+	console.log(msg);
+    return msg;
+}
+
+/**
+	 * Returns a list of count random numbers between min (inclusive) and max (exclusive)
+	 */
+function getRandomArbitraryList(count, min, max) {
+	var list = [];
+	for (var i = 0; i < count; i++)
+		list.push(Math.floor(Math.random() * (max - min) + min));
+	return list;
+}
+
+/* get list of random numbers from the Random.org service */
+function getRandomDigits(count, min, max, callback, override) {
+	lock = true;
+	$.ajax({
+		url: 'https://www.random.org/integers/?num=' + count + '&min=' + min + '&max=' + max + '&col=1&base=10&format=plain&rnd=new&__time=' + (new Date()).getTime(),
+		method: 'GET'
+	}).done(function(data) {
+		if (data == undefined) {
+			callback(getRandomArbitraryList(count, min, max + 1).map(function(n, i) {
+				return override == undefined ? Number(n) : override[i] || Number(n);
+			}));
+		} else {
+			callback(_.filter(data.split("\n"), function(s){  return s.length > 0; }).map(function(n, i) {
+				return override == undefined ? Number(n) : override[i] || Number(n);
+			}));
+		}
+		lock = false;
+	}).fail(function() {
+		callback(getRandomArbitraryList(count, min, max + 1).map(function(n, i) {
+			return override == undefined ? Number(n) : override[i] || Number(n);
+		}));
+		lock = false;
+	});
+}
+
+function god_speaking(shrine, god, action){
+	getRandomDigits(Math.random()*5,0,25, function(n_list){
+		var msg = randomMessage(n_list);
+		log('GOD\'S MESSAGE :: SHRINE:'+ shrine['class'] + '|GOD:'+ shrine['god'] +'|ACTION:' + shrine['action'] + '|PAYLOAD:' + msg);
+
+		var el_msg = $('<span/>', {'class': 'fire god-msg ' + shrine['action']}).text(msg).css({'left': Math.random() * $('.shrine.' + shrine['class']).width() * 0.9, 'bottom':$('.shrine.' + shrine['class']).height()});
+		$('.shrine.' + shrine['class']).append(el_msg);
+		var dur = 666 * 66;
+		$(el_msg).stop().animate({'bottom': '0'}, Math.floor(dur * 0.5)).fadeTo( dur, 0 , function() {
+			el_msg.detach();
+		});
+	});
+}
+
 $(document).ready(function(){
 
     var flag_play_music = true;
     var flag_play_fire = true;
+    var active_shrine = 'default', active_god = null, active_action = null;
 
     var shrines = {
         'default': {
@@ -258,6 +368,7 @@ $(document).ready(function(){
         var shrine = selector.data('shrine');
         var trigger = $(this).closest('ul').siblings('button')
             trigger.find('.chosen').text(choice);
+        var god_speak_interval = null;
         log('CHOICE|CATEGORY:' + category + '|CHOICE:' + choice);
         switch(category){
             case 'shrine-default-god': {
@@ -275,6 +386,7 @@ $(document).ready(function(){
                     $('.cipher.'+shrine).addClass('god-'+classify(choice));
                     load_music(classify(choice));
                     $('.shrine-in:first').focus();
+                    active_god = classify(choice);
                 }
                 break;
             }
@@ -286,6 +398,7 @@ $(document).ready(function(){
                     $('.shrine.'+shrine).data('action',choice);
                     $('.shrine.'+shrine).addClass('action-'+classify(choice));
                     $('.shrine-in:first').focus();
+                    active_action = classify(choice);
                 }
                 break;
             }
@@ -296,9 +409,14 @@ $(document).ready(function(){
     $('.shrine-in').enterKey(function(){
         var msg = $(this).val();
         var target_shrine = $(this).data('shrine');
-        log('MSG|SHRINE: ' + target_shrine + '|MSG:' + msg)
-            process_shrine(shrines[target_shrine], msg)
-            $(this).val(null);
+        log('MSG|SHRINE: ' + target_shrine + '|MSG:' + msg);
+        process_shrine(shrines[target_shrine], msg);
+        $(this).val(null);
+
+        var delay2 = Math.random() * 9 * 10e2;
+        setTimeout(function(){
+            god_speaking(shrines[active_shrine], active_god, active_action);
+        }, delay2);
     });
 
 
@@ -330,6 +448,7 @@ $(document).ready(function(){
                 load_music('GOD'); // default...
         }
     });
+    $('.shrine-in:first').focus();
 
     $('#music_switch').change(function(){
         flag_play_music = $(this).prop('checked');
