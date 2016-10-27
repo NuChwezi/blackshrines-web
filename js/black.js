@@ -329,7 +329,6 @@ $(document).ready(function(){
             else
                 load_music('GOD'); // default...
         }
-
     });
 
     $('#music_switch').change(function(){
@@ -347,6 +346,14 @@ $(document).ready(function(){
     $(".shrine").bind('cut copy paste', function (e) {
         e.preventDefault();
     });
+
+    // since shrine opens by default
+    if(flag_play_fire) {
+        SOUNDS.shrine['default']['fire'].play();
+    }
+    if(flag_play_music) {
+        load_music('GOD'); 
+    }
 
 });
 

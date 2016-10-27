@@ -96,6 +96,8 @@ input.check-switch{
     word-wrap: break-word;
     position: relative;
     z-index: 1000;
+    border-width: 3px;
+            border-style: inset;
 }
 
 .cipher {
@@ -105,6 +107,7 @@ input.check-switch{
     position: absolute;
     bottom: 0;
     width: 100%;
+    margin-bottom: 9px;
 }
 
 
@@ -127,6 +130,7 @@ input.check-switch{
     .shrine.god-GOD{
         background-color: rgba(175, 19, 19, 0.32);
         color: #cd4606;
+        border-color: #cd4606;
     }
     .god-GOD .cipher{
         color:#cd0606;
@@ -134,6 +138,7 @@ input.check-switch{
     .shrine.god-SATAN{
         background-color: rgba(239, 17, 17, 0.63);
         color: #ffd8d8;
+        border-color:#ffd8d8;
     }
     .god-SATAN .cipher{
         color: #ffd8d8;
@@ -142,6 +147,7 @@ input.check-switch{
     .shrine.god-SET{
         background-color: rgba(171, 0, 255, 0.26);
         color: #ab00ff;
+        border-color:#ab00ff;
     }
     .god-SET .cipher{
         color: #ab00ff;
@@ -150,6 +156,7 @@ input.check-switch{
     .shrine.god-TAHUTI{
         background-color: rgba(12, 199, 123, 0.19);
         color: #0cc77b;
+        border-color:#0cc77b;
     }
     .god-TAHUTI .cipher{
         color: #0cc77b;
@@ -158,6 +165,7 @@ input.check-switch{
     .shrine.god-LUCIFER{
         background-color: rgba(253, 253, 49, 0.56);
         color: white;
+        border-color: white;
     }
     .god-LUCIFER .cipher{
         color: #4e0e07;
@@ -166,6 +174,7 @@ input.check-switch{
     .shrine.god-NYAMIYONGA{
         background-color: rgba(156, 139, 125, 0.26);
         color: #d4cdb9;
+        border-color:#d4cdb9;
     }
     .god-NYAMIYONGA .cipher{
         color: #d4cdb9;
@@ -175,6 +184,7 @@ input.check-switch{
     .shrine.god-ENKYA_YA_ENKYA{
         background-color: rgba(166, 235, 255, 0.62);
         color: #170115;
+        border-color:#170115;
     }
     .god-ENKYA_YA_ENKYA .cipher{
         color: #170115;
@@ -182,6 +192,7 @@ input.check-switch{
     .shrine.god-LEVIATAN{
         background-color: rgba(3, 45, 171, 0.67);
         color: #abc0ff;
+        border-color:#abc0ff;
     }
     .god-LEVIATAN .cipher{
         color: #abc0ff;
@@ -191,6 +202,7 @@ input.check-switch{
     .shrine.god-BELIAL{
         background-color: rgba(3, 49, 10, 0.64);
         color: #f1d483;
+        border-color:#f1d483;
     }
     .god-BELIAL .cipher{
         color: #f1d483;
@@ -199,16 +211,18 @@ input.check-switch{
     .shrine.god-BEAST_666{
         background-color: rgba(138, 57, 140, 0.2);
         color: #eff511;
+        border-color:#eff511;
     }
     .god-BEAST_666 .cipher{
         color: #eff511;
     }
     .shrine.god-DAEMON{
         background-color: rgba(38, 8, 51, 0);
-        color: rgba(88, 253, 171, 0.97);
+        color: rgba(111, 82, 61, 0.97);
+        border-color: rgba(109, 115, 113, 0.97);
     }
     .god-DAEMON .cipher{
-        color:rgba(253, 88, 88, 0.97);
+        color: rgba(109, 115, 113, 0.97);
         font-family: cipher_tlvgrx;
         font-size: 80px;
     }
