@@ -352,15 +352,15 @@ input.check-switch{
         to   { text-shadow: -.1em -.2em .6em #fefcc9, -.15em 0 .6em #feec85, .1em -.25em .6em #ffae34, -.15em -.45em .5em #ec760c, .1em -.5em .6em #cd4606, 0 -.8em .6em #973716, -.2em -1em .8em #451b0e; }						
     }
 
-    .books-row {
+    .books-row, .projects-row {
         margin-bottom: 10px;
     }
-    .book-title {
+    .book-title, .project-title {
         font-size: larger;
         font-weight: bold;
         color: #451b0e;
     }
-    .book-title small {
+    .book-title, .project-title small {
         color: crimson;
     }
 
