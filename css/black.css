@@ -351,3 +351,15 @@ input.check-switch{
         70%  { text-shadow: -.1em 0 .3em #fefcc9, .1em -.1em .3em #feec85, -.2em -.2em .6em #ffae34, .2em -.3em .4em #ec760c, -.2em -.4em .7em #cd4606, .1em -.5em .7em #973716, .1em -.7em .9em #451b0e; }
         to   { text-shadow: -.1em -.2em .6em #fefcc9, -.15em 0 .6em #feec85, .1em -.25em .6em #ffae34, -.15em -.45em .5em #ec760c, .1em -.5em .6em #cd4606, 0 -.8em .6em #973716, -.2em -1em .8em #451b0e; }						
     }
+
+    .books-row {
+        margin-bottom: 10px;
+    }
+    .book-title {
+        font-size: larger;
+        font-weight: bold;
+        color: #451b0e;
+    }
+    .book-title small {
+        color: crimson;
+    }
