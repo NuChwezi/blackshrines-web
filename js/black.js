@@ -130,17 +130,25 @@ function make_offertory(msg){
     return el_msg;
 }
 
-function process_shrine(shrine, msg){
+function process_shrine(shrine, msg, i_speak){
     log('SHRINE:'+ shrine['class'] + '|GOD:'+ shrine['god'] +'|ACTION:' + shrine['action'] + '|PAYLOAD:' + msg);
-    var el_msg = $('<span/>', {'class': 'fire shrine-msg ' + shrine['action']}).text(msg);
-    if(is_offertory(msg)){
-        el_msg = make_offertory(msg);
+    if(!i_speak){
+        if(shrine['action'] == 'DIVINE'){
+            god_speaking(shrine, shrine['god'], shrine['action'], msg);
+        }
+    }else {
+        var el_msg = $('<span/>', {'class': 'fire shrine-msg ' + shrine['action']}).text(msg);
+        if(is_offertory(msg)){
+            el_msg = make_offertory(msg);
+        }
+        $('.shrine.' + shrine['class']).append(el_msg);
+        var dur = 666 * 66;
+        $(el_msg).stop().animate({'top': '0'}, Math.floor(dur * 0.5)).fadeTo( dur, 0 , function() {
+            el_msg.detach();
+        });
     }
-    $('.shrine.' + shrine['class']).append(el_msg);
-    var dur = 666 * 66;
-    $(el_msg).stop().animate({'top': '0'}, Math.floor(dur * 0.5)).fadeTo( dur, 0 , function() {
-        el_msg.detach();
-    });
+
+    return !i_speak;
 }
 
 function mantra(god){
@@ -313,19 +321,27 @@ function getRandomDigits(count, min, max, callback, override) {
 	});
 }
 
-function god_speaking(shrine, god, action){
-	getRandomDigits(1 + Math.ceil(Math.random()*8),0,god_alphabet.length - 1, function(n_list){
-		var msg = randomMessage(n_list);
-		log('GOD\'S MESSAGE :: SHRINE:'+ shrine['class'] + '|GOD:'+ shrine['god'] +'|ACTION:' + shrine['action'] + '|PAYLOAD:' + msg);
+function god_speaking(shrine, god, action, msg){
+    function gmsg(_msg){
+        log('GOD\'S MESSAGE :: SHRINE:'+ shrine['class'] + '|GOD:'+ shrine['god'] +'|ACTION:' + shrine['action'] + '|PAYLOAD:' + _msg);
         var god_cipher_off = $('#god_cipher_off_switch').prop('checked');
 
-		var el_msg = $('<span/>', {'class': 'fire '+ (!god_cipher_off ? 'god-msg ' : 'god-msg-plain ') + shrine['action']}).text(msg).css({'left': Math.random() * $('.shrine.' + shrine['class']).width() * 0.9, 'bottom':$('.shrine.' + shrine['class']).height()});
-		$('.shrine.' + shrine['class']).append(el_msg);
-		var dur = 666 * 66;
-		$(el_msg).stop().animate({'bottom': '110'}, Math.floor(dur * 0.5)).fadeTo( dur, 0 , function() {
-			el_msg.detach();
-		});
-	});
+        var el_msg = $('<span/>', {'class': 'fire '+ (!god_cipher_off ? 'god-msg ' : 'god-msg-plain ') + shrine['action']}).text(_msg).css({'left': Math.random() * $('.shrine.' + shrine['class']).width() * 0.9, 'bottom':$('.shrine.' + shrine['class']).height()});
+        $('.shrine.' + shrine['class']).append(el_msg);
+        var dur = 666 * 66;
+        $(el_msg).stop().animate({'bottom': '110'}, Math.floor(dur * 0.5)).fadeTo( dur, 0 , function() {
+            el_msg.detach();
+        });
+
+    }
+    if(msg){
+        gmsg(msg);
+    }else {
+        getRandomDigits(1 + Math.ceil(Math.random()*8),0,god_alphabet.length - 1, function(n_list){
+            var _msg = randomMessage(n_list);
+            gmsg(_msg);
+        });
+    }
 }
 
 function get_setting(key, default_val){
@@ -414,6 +430,11 @@ $(document).ready(function(){
                     $('.shrine.'+shrine).addClass('action-'+classify(choice));
                     $('.shrine-in:first').focus();
                     active_action = classify(choice);
+                    if(active_action != 'DIVINE'){
+                        $('.shrine-in:first').attr({'placeholder': 'Speak to your Gods... decipher what they say back.'})
+                    }else {
+                        $('.shrine-in:first').attr({'placeholder': 'Access this God or being, directly from within...'})
+                    }
                 }
                 break;
             }
@@ -421,17 +442,24 @@ $(document).ready(function(){
         }
     });
 
+    var i_speak = true;
     $('.shrine-in').enterKey(function(){
         var msg = $(this).val();
         var target_shrine = $(this).data('shrine');
         log('MSG|SHRINE: ' + target_shrine + '|MSG:' + msg);
-        process_shrine(shrines[target_shrine], msg);
+
+        var sp = process_shrine(shrines[target_shrine], msg, i_speak);
+        i_speak = active_action == 'DIVINE'? sp : true;
+        
+        if(active_action != 'DIVINE'){
+            var delay2 = Math.random() * 9 * 10e2;
+            setTimeout(function(){
+                god_speaking(shrines[active_shrine], active_god, active_action);
+            }, delay2);
+        }
+
         $(this).val(null);
 
-        var delay2 = Math.random() * 9 * 10e2;
-        setTimeout(function(){
-            god_speaking(shrines[active_shrine], active_god, active_action);
-        }, delay2);
     });
 
 
