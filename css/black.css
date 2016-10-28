@@ -165,6 +165,12 @@ input.check-switch{
         position: absolute;
         width: auto;
     }
+    .god-msg-plain {
+        display: block;
+        font-size: xx-large;
+        position: absolute;
+        width: auto;
+    }
     .shrine.god-SATAN{
         background-color: rgba(239, 17, 17, 0.63);
         color: #ffd8d8;
@@ -226,6 +232,8 @@ input.check-switch{
         color: #d4cdb9;
         font-family: cipher_orevi321;
         font-size: 50px;
+    }
+
     .god-NYAMIYONGA .god-msg{
         color: #d4cdb9;
         font-family: cipher_orevi321;
@@ -251,6 +259,8 @@ input.check-switch{
         color: #abc0ff;
         font-family: cipher_svyivd;
         font-size: 50px;
+    }
+
     .god-LEVIATAN .god-msg{
         color: #abc0ff;
         font-family: cipher_svyivd;
@@ -289,6 +299,8 @@ input.check-switch{
         color: rgba(109, 115, 113, 0.97);
         font-family: cipher_tlvgrx;
         font-size: 80px;
+    }
+
     .god-DAEMON .god-msg{
         color: rgba(109, 115, 113, 0.97);
         font-family: cipher_tlvgrx;

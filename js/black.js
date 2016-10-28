@@ -250,23 +250,25 @@ var generateWeighedList = function(list, weight) {
 };
  
 
-function randomMessage(keys){
-	var list = 'etaoinsrhdlucmfywgpbvkxqjz'.split('');
-
-    /*
+var god_alphabet = null; //'abc def ghi jkl mno pqr stu vwx yz 123 456 789 0'.split('');
+if(god_alphabet == null){
+    var list = 'etaoinsrhdlucmfywgpbvkxqjz'.split('');
     var frequencies = [12.0,9.10,8.12,7.68,7.31,6.95,6.28,6.02,5.92,4.32,3.98,2.88,2.71,2.61,2.30,2.11,2.09,2.03,1.82,1.49,1.11,0.69,0.17,0.11,0.10,0.07];
-    var freq_sum = _.reduce(frequencies, function(memo, num){ return memo + num; }, 0);
-	var weight = frequencies.map(function(n){ return n * 1000 / freq_sum });
-	var weighed_list = generateWeighedList(list, weight);
+    //var freq_sum = _.reduce(frequencies, function(memo, num){ return memo + num; }, 0);
+    var weight = frequencies; //frequencies.map(function(n){ return n / freq_sum });
+    var weighed_list = generateWeighedList(list, weight);
+    god_alphabet = _.shuffle(weighed_list);
+}
+
+function randomMessage(keys){
 	 
 	//var random_num = rand(0, weighed_list.length-1);
-    */
 
     var msg = '';
 
     for(i=0;i<keys.length;i++){
         var random_num = keys[i];
-        msg += list[random_num];
+        msg += _.shuffle(god_alphabet)[random_num];
     }
 
 	console.log(msg);
@@ -292,16 +294,19 @@ function getRandomDigits(count, min, max, callback, override) {
 	}).done(function(data) {
 		if (data == undefined) {
 			callback(getRandomArbitraryList(count, min, max + 1).map(function(n, i) {
+                n = n.toString() == "NaN" ? min + (Math.random() * (max - min)) : n;
 				return override == undefined ? Number(n) : override[i] || Number(n);
 			}));
 		} else {
 			callback(_.filter(data.split("\n"), function(s){  return s.length > 0; }).map(function(n, i) {
+                n = n.toString() == "NaN" ? min + (Math.random() * (max - min)) : n;
 				return override == undefined ? Number(n) : override[i] || Number(n);
 			}));
 		}
 		lock = false;
 	}).fail(function() {
 		callback(getRandomArbitraryList(count, min, max + 1).map(function(n, i) {
+            n = n.toString() == "NaN" ? min + (Math.random() * (max - min)) : n;
 			return override == undefined ? Number(n) : override[i] || Number(n);
 		}));
 		lock = false;
@@ -309,23 +314,33 @@ function getRandomDigits(count, min, max, callback, override) {
 }
 
 function god_speaking(shrine, god, action){
-	getRandomDigits(Math.random()*5,0,25, function(n_list){
+	getRandomDigits(1 + Math.ceil(Math.random()*8),0,god_alphabet.length - 1, function(n_list){
 		var msg = randomMessage(n_list);
 		log('GOD\'S MESSAGE :: SHRINE:'+ shrine['class'] + '|GOD:'+ shrine['god'] +'|ACTION:' + shrine['action'] + '|PAYLOAD:' + msg);
+        var god_cipher_off = $('#god_cipher_off_switch').prop('checked');
 
-		var el_msg = $('<span/>', {'class': 'fire god-msg ' + shrine['action']}).text(msg).css({'left': Math.random() * $('.shrine.' + shrine['class']).width() * 0.9, 'bottom':$('.shrine.' + shrine['class']).height()});
+		var el_msg = $('<span/>', {'class': 'fire '+ (!god_cipher_off ? 'god-msg ' : 'god-msg-plain ') + shrine['action']}).text(msg).css({'left': Math.random() * $('.shrine.' + shrine['class']).width() * 0.9, 'bottom':$('.shrine.' + shrine['class']).height()});
 		$('.shrine.' + shrine['class']).append(el_msg);
 		var dur = 666 * 66;
-		$(el_msg).stop().animate({'bottom': '0'}, Math.floor(dur * 0.5)).fadeTo( dur, 0 , function() {
+		$(el_msg).stop().animate({'bottom': '110'}, Math.floor(dur * 0.5)).fadeTo( dur, 0 , function() {
 			el_msg.detach();
 		});
 	});
 }
 
+function get_setting(key, default_val){
+    var val = localStorage.getItem(key);
+    return  val? JSON.parse(val): default_val;
+}
+function set_setting(key, val){
+    return localStorage.setItem(key,JSON.stringify(val));
+}
+
 $(document).ready(function(){
 
-    var flag_play_music = true;
-    var flag_play_fire = true;
+    var flag_play_music = get_setting('flag_play_music', true);
+    var flag_play_fire = get_setting('flag_play_fire', true);
+
     var active_shrine = 'default', active_god = null, active_action = null;
 
     var shrines = {
@@ -452,10 +467,20 @@ $(document).ready(function(){
 
     $('#music_switch').change(function(){
         flag_play_music = $(this).prop('checked');
+        set_setting('flag_play_music', flag_play_music);
     });
+    $('#music_switch').prop('checked', flag_play_music);
     $('#fire_switch').change(function(){
         flag_play_fire = $(this).prop('checked');
+        set_setting('flag_play_fire', flag_play_fire);
     });
+    $('#fire_switch').prop('checked', flag_play_fire);
+    $('#god_cipher_off_switch').change(function(){
+        checked = $(this).prop('checked');
+        set_setting('flag_god_cipher_off', checked);
+    });
+    // initially...
+    $('#god_cipher_off_switch').prop('checked', get_setting('flag_god_cipher_off', false));
 
 
     // hmm, no cheating...
