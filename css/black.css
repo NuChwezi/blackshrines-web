@@ -119,7 +119,8 @@ input.check-switch{
     position: relative;
     z-index: 1000;
     border-width: 3px;
-            border-style: inset;
+    border-style: inset;
+    background-size: auto 300px;
 }
 
 .cipher {
@@ -150,301 +151,301 @@ input.check-switch{
  *
  * *************************/
 
-    .shrine.god-GOD{
-        background-color: rgba(175, 19, 19, 0.32);
-        color: #cd4606;
-        border-color: #cd4606;
+.shrine.god-GOD{
+    background-color: rgba(175, 19, 19, 0.32);
+    color: #cd4606;
+    border-color: #cd4606;
 
 
-        /* for shrine sigil */
-		background-image: url(../images/sigils/chaos.png);
-		background-position: top;
-		background-repeat: no-repeat;
-		background-position-y: 20px;
-        /* end sigil */
-    }
-    .god-GOD .cipher{
-        color:#cd0606;
-    }
-    .god-msg {
-        font-family: cipher_roofnrmzgr;
-        display: block;
-        font-size: xx-large;
-        position: absolute;
-        width: auto;
-    }
-    .god-msg-plain {
-        display: block;
-        font-size: xx-large;
-        position: absolute;
-        width: auto;
-    }
-    .shrine.god-SATAN{
-        background-color: rgba(239, 17, 17, 0.63);
-        color: #ffd8d8;
-        border-color:#ffd8d8;
-        /* for shrine sigil */
-		background-image: url(../images/sigils/satan.png);
-		background-position: top;
-		background-repeat: no-repeat;
-        /* end sigil */
-    }
-    .god-SATAN .cipher{
-        color: #ffd8d8;
-        font-family: cipher_wzttvih;
-    }
-    .god-SATAN .god-msg{
-        color: #ffd8d8;
-        font-family: cipher_wzttvih;
-    }
-    .shrine.god-SET{
-        background-color: rgba(171, 0, 255, 0.26);
-        color: #b2a9b7;
-            border-color: #b2a9b7;
-        /* for shrine sigil */
-		background-image: url(../images/sigils/set.png);
-		background-position: top;
-		background-repeat: no-repeat;
-		background-position-y: 20px;
-        /* end sigil */
-    }
-    .god-SET .cipher{
-        color: #745982;
-        font-family: cipher_vmlxs;
-    }
-    .god-SET .god-msg{
-        color: #ab00ff;
-        font-family: cipher_vmlxs;
-    }
-    .shrine.god-TAHUTI{
-        background-color:rgba(91, 243, 199, 0.48);
-        color:#0a5d3b;
-        border-color:#0cc77b;
-        /* for shrine sigil */
-		background-image: url(../images/sigils/tahuti.png);
-		background-position: top;
-		background-repeat: no-repeat;
-		background-position-y: 20px;
-        /* end sigil */
-    }
-    .god-TAHUTI .cipher{
-        color: #02150d;
-            font-family: cipher_MftHlgs;
-                font-weight: bold;
-    }
-    .god-TAHUTI .god-msg{
-        color:#0a5d3b;
-        font-family: cipher_MftHlgs;
-    }
-    .shrine.god-LUCIFER{
-        background-color: rgba(253, 253, 49, 0.56);
-        color: white;
-        border-color: white;
-        /* for shrine sigil */
-		background-image: url(../images/sigils/lucifer.png);
-		background-position: top;
-		background-repeat: no-repeat;
-		background-position-y: 20px;
-        /* end sigil */
-    }
-    .god-LUCIFER .cipher{
-        color: #4e0e07;
-        font-family: cipher_roofnrmzgr;
-    }
-    .god-LUCIFER .god-msg{
-        color: #4e0e07;
-        font-family: cipher_roofnrmzgr;
-    }
-    .shrine.god-NYAMIYONGA{
-        background-color: rgba(195, 194, 193, 0.26);
-        color: #d4cdb9;
-        border-color:#d4cdb9;
-        /* for shrine sigil */
-		background-image: url(../images/sigils/nyamiyonga.png);
-		background-position: top;
-		background-repeat: no-repeat;
-		background-position-y: 20px;
-        /* end sigil */
+    /* for shrine sigil */
+    background-image: url(../images/sigils/chaos.png);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-position-y: 20px;
+    /* end sigil */
+}
+.god-GOD .cipher{
+    color:#cd0606;
+}
+.god-msg {
+    font-family: cipher_roofnrmzgr;
+    display: block;
+    font-size: xx-large;
+    position: absolute;
+    width: auto;
+}
+.god-msg-plain {
+    display: block;
+    font-size: xx-large;
+    position: absolute;
+    width: auto;
+}
+.shrine.god-SATAN{
+    background-color: rgba(239, 17, 17, 0.63);
+    color: #ffd8d8;
+    border-color:#ffd8d8;
+    /* for shrine sigil */
+    background-image: url(../images/sigils/satan.png);
+    background-position: top;
+    background-repeat: no-repeat;
+    /* end sigil */
+}
+.god-SATAN .cipher{
+    color: #ffd8d8;
+    font-family: cipher_wzttvih;
+}
+.god-SATAN .god-msg{
+    color: #ffd8d8;
+    font-family: cipher_wzttvih;
+}
+.shrine.god-SET{
+    background-color: rgba(171, 0, 255, 0.26);
+    color: #b2a9b7;
+    border-color: #b2a9b7;
+    /* for shrine sigil */
+    background-image: url(../images/sigils/set.png);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-position-y: 20px;
+    /* end sigil */
+}
+.god-SET .cipher{
+    color: #745982;
+    font-family: cipher_vmlxs;
+}
+.god-SET .god-msg{
+    color: #ab00ff;
+    font-family: cipher_vmlxs;
+}
+.shrine.god-TAHUTI{
+    background-color:rgba(91, 243, 199, 0.48);
+    color:#0a5d3b;
+    border-color:#0cc77b;
+    /* for shrine sigil */
+    background-image: url(../images/sigils/tahuti.png);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-position-y: 20px;
+    /* end sigil */
+}
+.god-TAHUTI .cipher{
+    color: #02150d;
+    font-family: cipher_MftHlgs;
+    font-weight: bold;
+}
+.god-TAHUTI .god-msg{
+    color:#0a5d3b;
+    font-family: cipher_MftHlgs;
+}
+.shrine.god-LUCIFER{
+    background-color: rgba(253, 253, 49, 0.56);
+    color: white;
+    border-color: white;
+    /* for shrine sigil */
+    background-image: url(../images/sigils/lucifer.png);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-position-y: 20px;
+    /* end sigil */
+}
+.god-LUCIFER .cipher{
+    color: #4e0e07;
+    font-family: cipher_roofnrmzgr;
+}
+.god-LUCIFER .god-msg{
+    color: #4e0e07;
+    font-family: cipher_roofnrmzgr;
+}
+.shrine.god-NYAMIYONGA{
+    background-color: rgba(195, 194, 193, 0.26);
+    color: #d4cdb9;
+    border-color:#d4cdb9;
+    /* for shrine sigil */
+    background-image: url(../images/sigils/nyamiyonga.png);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-position-y: 20px;
+    /* end sigil */
+}
+.god-NYAMIYONGA .cipher{
+    color: #afafaf;
+    font-family: cipher_orevi321;
+    font-size: 50px;
+}
+
+.god-NYAMIYONGA .god-msg{
+    color: #d4cdb9;
+    font-family: cipher_orevi321;
+    font-size: 50px;
+    /* for shrine sigil */
+    background-image: url(../images/sigils/baphomet.png);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-position-y: 20px;
+    /* end sigil */
+}
+.shrine.god-ENKYA_YA_ENKYA{
+    background-color: rgba(166, 235, 255, 0.62);
+    color: #170115;
+    border-color:#170115;
+    /* for shrine sigil */
+    background-image: url(../images/sigils/enkya_ya_enkya.png);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-position-y: 20px;
+    /* end sigil */
+}
+.god-ENKYA_YA_ENKYA .cipher{
+    color: #170115;
+}
+.god-ENKYA_YA_ENKYA .god-msg{
+    color: #170115;
+}
+.shrine.god-LEVIATAN{
+    background-color:rgba(42, 76, 179, 0.67);
+    color: #abc0ff;
+    border-color:#abc0ff;
+    /* for shrine sigil */
+    background-image: url(../images/sigils/leviathan.png);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-position-y: 20px;
+    /* end sigil */
+}
+.god-LEVIATAN .cipher{
+    color: #abc0ff;
+    font-family: cipher_svyivd;
+    font-size: 50px;
+}
+
+.god-LEVIATAN .god-msg{
+    color: #abc0ff;
+    font-family: cipher_svyivd;
+    font-size: 50px;
+}
+.shrine.god-BELIAL{
+    background-color:rgba(6, 84, 18, 0.64);
+    color: #f1d483;
+    border-color:#f1d483;
+    /* for shrine sigil */
+    background-image: url(../images/sigils/belial.png);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-position-y: 20px;
+    /* end sigil */
+}
+.god-BELIAL .cipher{
+    color: #f1d483;
+    font-family: cipher_lxxfog;
+}
+.god-BELIAL .god-msg{
+    color: #f1d483;
+    font-family: cipher_lxxfog;
+}
+.shrine.god-BEAST_666{
+    background-color:rgba(253, 174, 255, 0.2);
+    color: #d1d460;
+    border-color:#eff511;
+    /* for shrine sigil */
+    background-image: url(../images/sigils/beast.png);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-position-y: 20px;
+    /* end sigil */
+}
+.god-BEAST_666 .cipher{
+    color: #252524;
+    font-weight: bold;
+}
+.god-BEAST_666 .god-msg{
+    color: #d1d460;
+}
+.shrine.god-DAEMON{
+    background-color: rgba(38, 8, 51, 0);
+    color: rgba(111, 82, 61, 0.97);
+    border-color: rgba(109, 115, 113, 0.97);
+    /* for shrine sigil */
+    background-image: url(../images/sigils/daemon.png);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-position-y: 20px;
+    /* end sigil */
+}
+.god-DAEMON .cipher{
+    color: rgba(109, 115, 113, 0.97);
+    font-family: cipher_tlvgrx;
+    font-size: 80px;
+}
+
+.god-DAEMON .god-msg{
+    color: rgba(109, 115, 113, 0.97);
+    font-family: cipher_tlvgrx;
+    font-size: 80px;
+}
+@media (max-width:768px) {
+    .god-DAEMON .cipher{
+        font-size: 36px;
     }
     .god-NYAMIYONGA .cipher{
-        color: #afafaf;
-        font-family: cipher_orevi321;
-        font-size: 50px;
+        font-size: 36px;
     }
-
-    .god-NYAMIYONGA .god-msg{
-        color: #d4cdb9;
-        font-family: cipher_orevi321;
-        font-size: 50px;
-        /* for shrine sigil */
-		background-image: url(../images/sigils/baphomet.png);
-		background-position: top;
-		background-repeat: no-repeat;
-		background-position-y: 20px;
-        /* end sigil */
-    }
-    .shrine.god-ENKYA_YA_ENKYA{
-        background-color: rgba(166, 235, 255, 0.62);
-        color: #170115;
-        border-color:#170115;
-        /* for shrine sigil */
-		background-image: url(../images/sigils/enkya_ya_enkya.png);
-		background-position: top;
-		background-repeat: no-repeat;
-		background-position-y: 20px;
-        /* end sigil */
-    }
-    .god-ENKYA_YA_ENKYA .cipher{
-        color: #170115;
-    }
-    .god-ENKYA_YA_ENKYA .god-msg{
-        color: #170115;
-    }
-    .shrine.god-LEVIATAN{
-        background-color:rgba(42, 76, 179, 0.67);
-        color: #abc0ff;
-        border-color:#abc0ff;
-        /* for shrine sigil */
-		background-image: url(../images/sigils/leviathan.png);
-		background-position: top;
-		background-repeat: no-repeat;
-		background-position-y: 20px;
-        /* end sigil */
-    }
-    .god-LEVIATAN .cipher{
-        color: #abc0ff;
-        font-family: cipher_svyivd;
-        font-size: 50px;
-    }
-
-    .god-LEVIATAN .god-msg{
-        color: #abc0ff;
-        font-family: cipher_svyivd;
-        font-size: 50px;
-    }
-    .shrine.god-BELIAL{
-        background-color:rgba(6, 84, 18, 0.64);
-        color: #f1d483;
-        border-color:#f1d483;
-        /* for shrine sigil */
-		background-image: url(../images/sigils/belial.png);
-		background-position: top;
-		background-repeat: no-repeat;
-		background-position-y: 20px;
-        /* end sigil */
-    }
-    .god-BELIAL .cipher{
-        color: #f1d483;
-        font-family: cipher_lxxfog;
-    }
-    .god-BELIAL .god-msg{
-        color: #f1d483;
-        font-family: cipher_lxxfog;
-    }
-    .shrine.god-BEAST_666{
-        background-color:rgba(253, 174, 255, 0.2);
-        color: #d1d460;
-        border-color:#eff511;
-        /* for shrine sigil */
-		background-image: url(../images/sigils/beast.png);
-		background-position: top;
-		background-repeat: no-repeat;
-		background-position-y: 20px;
-        /* end sigil */
-    }
-    .god-BEAST_666 .cipher{
-            color: #252524;
-                font-weight: bold;
-    }
-    .god-BEAST_666 .god-msg{
-        color: #d1d460;
-    }
-    .shrine.god-DAEMON{
-        background-color: rgba(38, 8, 51, 0);
-        color: rgba(111, 82, 61, 0.97);
-        border-color: rgba(109, 115, 113, 0.97);
-        /* for shrine sigil */
-		background-image: url(../images/sigils/daemon.png);
-		background-position: top;
-		background-repeat: no-repeat;
-		background-position-y: 20px;
-        /* end sigil */
-    }
-    .god-DAEMON .cipher{
-        color: rgba(109, 115, 113, 0.97);
-        font-family: cipher_tlvgrx;
-        font-size: 80px;
-    }
-
-    .god-DAEMON .god-msg{
-        color: rgba(109, 115, 113, 0.97);
-        font-family: cipher_tlvgrx;
-        font-size: 80px;
-    }
-    @media (max-width:768px) {
-        .god-DAEMON .cipher{
-            font-size: 36px;
-        }
-        .god-NYAMIYONGA .cipher{
-            font-size: 36px;
-        }
-    }
+}
 
 
 
-    .fire {
-        animation: burn 1.5s linear infinite alternate;
-        -webkit-animation: burn 1.5s linear infinite alternate;
-        -moz-animation: burn 1.5s linear infinite alternate;
-        -ms-animation: burn 1.5s linear infinite alternate;        
-    }
+.fire {
+    animation: burn 1.5s linear infinite alternate;
+    -webkit-animation: burn 1.5s linear infinite alternate;
+    -moz-animation: burn 1.5s linear infinite alternate;
+    -ms-animation: burn 1.5s linear infinite alternate;        
+}
 
-    @keyframes burn {
-        from { text-shadow: -.1em 0 .3em #fefcc9, .1em -.1em .3em #feec85, -.2em -.2em .4em #ffae34, .2em -.3em .3em #ec760c, -.2em -.4em .4em #cd4606, .1em -.5em .7em #973716, .1em -.7em .7em #451b0e; }
-        45%  { text-shadow: .1em -.2em .5em #fefcc9, .15em 0 .4em #feec85, -.1em -.25em .5em #ffae34, .15em -.45em .5em #ec760c, -.1em -.5em .6em #cd4606, 0 -.8em .6em #973716, .2em -1em .8em #451b0e; }
-        70%  { text-shadow: -.1em 0 .3em #fefcc9, .1em -.1em .3em #feec85, -.2em -.2em .6em #ffae34, .2em -.3em .4em #ec760c, -.2em -.4em .7em #cd4606, .1em -.5em .7em #973716, .1em -.7em .9em #451b0e; }
-        to   { text-shadow: -.1em -.2em .6em #fefcc9, -.15em 0 .6em #feec85, .1em -.25em .6em #ffae34, -.15em -.45em .5em #ec760c, .1em -.5em .6em #cd4606, 0 -.8em .6em #973716, -.2em -1em .8em #451b0e; }						
-    }
+@keyframes burn {
+    from { text-shadow: -.1em 0 .3em #fefcc9, .1em -.1em .3em #feec85, -.2em -.2em .4em #ffae34, .2em -.3em .3em #ec760c, -.2em -.4em .4em #cd4606, .1em -.5em .7em #973716, .1em -.7em .7em #451b0e; }
+    45%  { text-shadow: .1em -.2em .5em #fefcc9, .15em 0 .4em #feec85, -.1em -.25em .5em #ffae34, .15em -.45em .5em #ec760c, -.1em -.5em .6em #cd4606, 0 -.8em .6em #973716, .2em -1em .8em #451b0e; }
+    70%  { text-shadow: -.1em 0 .3em #fefcc9, .1em -.1em .3em #feec85, -.2em -.2em .6em #ffae34, .2em -.3em .4em #ec760c, -.2em -.4em .7em #cd4606, .1em -.5em .7em #973716, .1em -.7em .9em #451b0e; }
+    to   { text-shadow: -.1em -.2em .6em #fefcc9, -.15em 0 .6em #feec85, .1em -.25em .6em #ffae34, -.15em -.45em .5em #ec760c, .1em -.5em .6em #cd4606, 0 -.8em .6em #973716, -.2em -1em .8em #451b0e; }						
+}
 
-    @-webkit-keyframes burn {
-        from { text-shadow: -.1em 0 .3em #fefcc9, .1em -.1em .3em #feec85, -.2em -.2em .4em #ffae34, .2em -.3em .3em #ec760c, -.2em -.4em .4em #cd4606, .1em -.5em .7em #973716, .1em -.7em .7em #451b0e; }
-        45%  { text-shadow: .1em -.2em .5em #fefcc9, .15em 0 .4em #feec85, -.1em -.25em .5em #ffae34, .15em -.45em .5em #ec760c, -.1em -.5em .6em #cd4606, 0 -.8em .6em #973716, .2em -1em .8em #451b0e; }
-        70%  { text-shadow: -.1em 0 .3em #fefcc9, .1em -.1em .3em #feec85, -.2em -.2em .6em #ffae34, .2em -.3em .4em #ec760c, -.2em -.4em .7em #cd4606, .1em -.5em .7em #973716, .1em -.7em .9em #451b0e; }
-        to   { text-shadow: -.1em -.2em .6em #fefcc9, -.15em 0 .6em #feec85, .1em -.25em .6em #ffae34, -.15em -.45em .5em #ec760c, .1em -.5em .6em #cd4606, 0 -.8em .6em #973716, -.2em -1em .8em #451b0e; }						
-    }
+@-webkit-keyframes burn {
+    from { text-shadow: -.1em 0 .3em #fefcc9, .1em -.1em .3em #feec85, -.2em -.2em .4em #ffae34, .2em -.3em .3em #ec760c, -.2em -.4em .4em #cd4606, .1em -.5em .7em #973716, .1em -.7em .7em #451b0e; }
+    45%  { text-shadow: .1em -.2em .5em #fefcc9, .15em 0 .4em #feec85, -.1em -.25em .5em #ffae34, .15em -.45em .5em #ec760c, -.1em -.5em .6em #cd4606, 0 -.8em .6em #973716, .2em -1em .8em #451b0e; }
+    70%  { text-shadow: -.1em 0 .3em #fefcc9, .1em -.1em .3em #feec85, -.2em -.2em .6em #ffae34, .2em -.3em .4em #ec760c, -.2em -.4em .7em #cd4606, .1em -.5em .7em #973716, .1em -.7em .9em #451b0e; }
+    to   { text-shadow: -.1em -.2em .6em #fefcc9, -.15em 0 .6em #feec85, .1em -.25em .6em #ffae34, -.15em -.45em .5em #ec760c, .1em -.5em .6em #cd4606, 0 -.8em .6em #973716, -.2em -1em .8em #451b0e; }						
+}
 
-    @-moz-keyframes burn {
-        from { text-shadow: -.1em 0 .3em #fefcc9, .1em -.1em .3em #feec85, -.2em -.2em .4em #ffae34, .2em -.3em .3em #ec760c, -.2em -.4em .4em #cd4606, .1em -.5em .7em #973716, .1em -.7em .7em #451b0e; }
-        45%  { text-shadow: .1em -.2em .5em #fefcc9, .15em 0 .4em #feec85, -.1em -.25em .5em #ffae34, .15em -.45em .5em #ec760c, -.1em -.5em .6em #cd4606, 0 -.8em .6em #973716, .2em -1em .8em #451b0e; }
-        70%  { text-shadow: -.1em 0 .3em #fefcc9, .1em -.1em .3em #feec85, -.2em -.2em .6em #ffae34, .2em -.3em .4em #ec760c, -.2em -.4em .7em #cd4606, .1em -.5em .7em #973716, .1em -.7em .9em #451b0e; }
-        to   { text-shadow: -.1em -.2em .6em #fefcc9, -.15em 0 .6em #feec85, .1em -.25em .6em #ffae34, -.15em -.45em .5em #ec760c, .1em -.5em .6em #cd4606, 0 -.8em .6em #973716, -.2em -1em .8em #451b0e; }						
-    }
+@-moz-keyframes burn {
+    from { text-shadow: -.1em 0 .3em #fefcc9, .1em -.1em .3em #feec85, -.2em -.2em .4em #ffae34, .2em -.3em .3em #ec760c, -.2em -.4em .4em #cd4606, .1em -.5em .7em #973716, .1em -.7em .7em #451b0e; }
+    45%  { text-shadow: .1em -.2em .5em #fefcc9, .15em 0 .4em #feec85, -.1em -.25em .5em #ffae34, .15em -.45em .5em #ec760c, -.1em -.5em .6em #cd4606, 0 -.8em .6em #973716, .2em -1em .8em #451b0e; }
+    70%  { text-shadow: -.1em 0 .3em #fefcc9, .1em -.1em .3em #feec85, -.2em -.2em .6em #ffae34, .2em -.3em .4em #ec760c, -.2em -.4em .7em #cd4606, .1em -.5em .7em #973716, .1em -.7em .9em #451b0e; }
+    to   { text-shadow: -.1em -.2em .6em #fefcc9, -.15em 0 .6em #feec85, .1em -.25em .6em #ffae34, -.15em -.45em .5em #ec760c, .1em -.5em .6em #cd4606, 0 -.8em .6em #973716, -.2em -1em .8em #451b0e; }						
+}
 
-    @-ms-keyframes burn {
-        from { text-shadow: -.1em 0 .3em #fefcc9, .1em -.1em .3em #feec85, -.2em -.2em .4em #ffae34, .2em -.3em .3em #ec760c, -.2em -.4em .4em #cd4606, .1em -.5em .7em #973716, .1em -.7em .7em #451b0e; }
-        45%  { text-shadow: .1em -.2em .5em #fefcc9, .15em 0 .4em #feec85, -.1em -.25em .5em #ffae34, .15em -.45em .5em #ec760c, -.1em -.5em .6em #cd4606, 0 -.8em .6em #973716, .2em -1em .8em #451b0e; }
-        70%  { text-shadow: -.1em 0 .3em #fefcc9, .1em -.1em .3em #feec85, -.2em -.2em .6em #ffae34, .2em -.3em .4em #ec760c, -.2em -.4em .7em #cd4606, .1em -.5em .7em #973716, .1em -.7em .9em #451b0e; }
-        to   { text-shadow: -.1em -.2em .6em #fefcc9, -.15em 0 .6em #feec85, .1em -.25em .6em #ffae34, -.15em -.45em .5em #ec760c, .1em -.5em .6em #cd4606, 0 -.8em .6em #973716, -.2em -1em .8em #451b0e; }						
-    }
+@-ms-keyframes burn {
+    from { text-shadow: -.1em 0 .3em #fefcc9, .1em -.1em .3em #feec85, -.2em -.2em .4em #ffae34, .2em -.3em .3em #ec760c, -.2em -.4em .4em #cd4606, .1em -.5em .7em #973716, .1em -.7em .7em #451b0e; }
+    45%  { text-shadow: .1em -.2em .5em #fefcc9, .15em 0 .4em #feec85, -.1em -.25em .5em #ffae34, .15em -.45em .5em #ec760c, -.1em -.5em .6em #cd4606, 0 -.8em .6em #973716, .2em -1em .8em #451b0e; }
+    70%  { text-shadow: -.1em 0 .3em #fefcc9, .1em -.1em .3em #feec85, -.2em -.2em .6em #ffae34, .2em -.3em .4em #ec760c, -.2em -.4em .7em #cd4606, .1em -.5em .7em #973716, .1em -.7em .9em #451b0e; }
+    to   { text-shadow: -.1em -.2em .6em #fefcc9, -.15em 0 .6em #feec85, .1em -.25em .6em #ffae34, -.15em -.45em .5em #ec760c, .1em -.5em .6em #cd4606, 0 -.8em .6em #973716, -.2em -1em .8em #451b0e; }						
+}
 
-    .books-row, .projects-row {
-        margin-bottom: 10px;
-    }
-    .book-title, .project-title {
-        font-size: larger;
-        font-weight: bold;
-        color: #451b0e;
-    }
+.books-row, .projects-row {
+    margin-bottom: 10px;
+}
+.book-title, .project-title {
+    font-size: larger;
+    font-weight: bold;
+    color: #451b0e;
+}
 
-    .book-title small, .project-title small {
-        color: crimson;
-    }
+.book-title small, .project-title small {
+    color: crimson;
+}
 
-    .consult-iframe {
-        width: 100%;
-        height: 810px;
-    }
+.consult-iframe {
+    width: 100%;
+    height: 810px;
+}
 
-    .logo-sigil {
-        height: 40px;
-    }
+.logo-sigil {
+    height: 40px;
+}
