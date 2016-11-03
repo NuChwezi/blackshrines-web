@@ -79,21 +79,8 @@ var SOUND_RES = {
 }
 
 var SOUND_PLAYERS = {
-    'fire': new Howl({ src: [SOUND_RES['fire']], loop: true, }),
-    'GODS': {}
 }
 
-_.keys(SOUND_RES['GODS']).map(function(god){ 
-    var d = {}; 
-    d[god] = SOUND_RES['GODS'][god].map(function(file){ 
-        // for lazy loading...
-        var loadPlayer = function(){
-            return new Howl({ src: [file], format: ['mp3'], loop: true }); 
-        };
-        return loadPlayer;
-    });
-    SOUND_PLAYERS['GODS'] = _.extend(SOUND_PLAYERS['GODS'], d);
-});
 
 var SOUNDS = {
     shrine: {
@@ -357,6 +344,23 @@ function set_setting(key, val){
 }
 
 $(document).ready(function(){
+
+    SOUND_PLAYERS = {
+        'fire': new Howl({ src: [SOUND_RES['fire']], loop: true, }),
+        'GODS': {}
+    }
+
+    _.keys(SOUND_RES['GODS']).map(function(god){ 
+        var d = {}; 
+        d[god] = SOUND_RES['GODS'][god].map(function(file){ 
+            // for lazy loading...
+            var loadPlayer = function(){
+                return new Howl({ src: [file], format: ['mp3'], loop: true }); 
+            };
+            return loadPlayer;
+        });
+        SOUND_PLAYERS['GODS'] = _.extend(SOUND_PLAYERS['GODS'], d);
+    });
 
     var flag_play_music = get_setting('flag_play_music', true);
     var flag_play_fire = get_setting('flag_play_fire', true);
