@@ -122,6 +122,10 @@ function is_offertory(msg){
 }
 function make_offertory(msg){
     var parts = msg.split(/.*i offer.*you/);
+    if(parts.length == 1){
+        var el_msg = $('<span/>', {'class': 'fire shrine-msg ' + shrine['action']}).text(msg);
+        return el_msg;
+    }
     var offertory = parts[1].trim();
     log('SHRINE:'+ shrine['class'] + '|GOD:'+ shrine['god'] +'|ACTION:' + shrine['action'] + '|OFFERTORY:' + offertory);
     var el_msg = $('<span/>', {'class': 'fire shrine-msg ' + shrine['action']}).text('i offer to you ' + offertory);
