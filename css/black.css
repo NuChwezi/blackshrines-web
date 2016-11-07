@@ -344,9 +344,9 @@ input.check-switch{
     font-family: cipher_lxxfog;
 }
 .shrine.god-BEAST_666{
-    background-color:rgba(253, 174, 255, 0.2);
+    background-color: rgba(235, 245, 94, 0.2);
     color: #d1d460;
-    border-color:#eff511;
+    border-color: #b1b511;
     /* for shrine sigil */
     background-image: url(../images/sigils/beast.png);
     background-position: top;
@@ -355,7 +355,7 @@ input.check-switch{
     /* end sigil */
 }
 .god-BEAST_666 .cipher{
-    color: #252524;
+    color: #cece59;
     font-weight: bold;
 }
 .god-BEAST_666 .god-msg{
