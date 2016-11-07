@@ -1227,8 +1227,9 @@ if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
             //"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js", /* JQuery JS */
             "https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.1/howler.min.js", /* Howler JS */
             "https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js", /* Underscore JS */
-            "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css", /* Bootstrap CSS */
-            "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap-theme.css", /* Bootstrap THEME CSS */
+            "http://bootswatch.com/darkly/bootstrap.min.css",
+            //"https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css", /* Bootstrap CSS */
+            //"https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap-theme.css", /* Bootstrap THEME CSS */
             "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js", /* Bootstrap JS */
             "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css", /* Font Awesome CSS*/
     ], function() {
