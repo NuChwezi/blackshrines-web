@@ -714,7 +714,7 @@ function show_shrine_records(){
         $('#shrine-records').append( $('<div/>', { 'class': rec.speaking == "ME" ? "record-me": "record-god" }).html(
                     '<span class="rec-time">'+ rec.date + " " + rec.time +'</span>'+
                     '&nbsp;<span class="rec-action">'+ rec.action +':</span>'+
-                    '&nbsp;<span class="rec-shrine">'+ rec.speaking + '@' + rec.shrine +'</span>'+
+                    '&nbsp;<span class="rec-shrine">'+ rec.speaking + '@' + (rec.shrine == 'default'? 'shrine': rec.shrine) +'</span>'+
                     '&nbsp;<span class="rec-msg">'+ rec.message +'</span>'
             ) );
     }

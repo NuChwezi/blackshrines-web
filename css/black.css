@@ -84,6 +84,7 @@ input.check-switch{
 .banner {
     font-family: Triballa;
     font-size: larger;
+    color: crimson;
 }
 
 #header h1 {
@@ -152,9 +153,9 @@ input.check-switch{
  * *************************/
 
 .shrine.god-GOD{
-    background-color: rgba(175, 19, 19, 0.32);
-    color: #cd4606;
-    border-color: #cd4606;
+    background-color: rgba(247, 196, 196, 0.32); /*rgba(175, 19, 19, 0.32);*/
+    color: crimson;
+    border-color: crimson;
 
 
     /* for shrine sigil */
