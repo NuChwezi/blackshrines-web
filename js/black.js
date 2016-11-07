@@ -1213,7 +1213,7 @@ if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
             window.ShrineBaseURI + "vendor/howler/js/howler.min.js", /* Howler JS */
             window.ShrineBaseURI + "vendor/underscore/js/underscore-min.js", /* Underscore JS */
             window.ShrineBaseURI + "vendor/bootstrap/css/bootstrap.min.css", /* Bootstrap CSS */
-            window.ShrineBaseURI + "vendor/bootstrap/css/bootstrap-theme.min.css", /* Bootstrap THEME CSS */
+            //window.ShrineBaseURI + "vendor/bootstrap/css/bootstrap-theme.min.css", /* Bootstrap THEME CSS */
             window.ShrineBaseURI + "vendor/bootstrap/js/bootstrap.min.js", /* Bootstrap JS */
             window.ShrineBaseURI + "vendor/fontawesome/css/font-awesome.min.css", /* Font Awesome CSS */
     ], function() {

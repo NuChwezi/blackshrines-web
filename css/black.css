@@ -64,7 +64,7 @@
 
 body {
     background-color: black;
-    color: #772323;
+    color: #d4b9b9;
 }
 
 a {
@@ -435,7 +435,7 @@ input.check-switch{
 .book-title, .project-title {
     font-size: larger;
     font-weight: bold;
-    color: #451b0e;
+    color: #7ff7dc;
 }
 
 .book-title small, .project-title small {
@@ -453,11 +453,10 @@ input.check-switch{
 
 .record-me {
     font-size: small;
-    color: black;
 }
 .record-god {
     font-size: small;
-    color: firebrick;
+    color: #ced22a;
 }
 .rec-msg {
     font-weight: bold;
