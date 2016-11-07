@@ -926,6 +926,26 @@ $(document).ready(function(){
 
         // know when to play music, what music to play, and when to go silent...
         var active_music = null;
+        function toggle_sounds(){
+            if(flag_play_fire) {
+                SOUNDS.shrine['default']['fire'].play();
+            }else {
+                SOUNDS.shrine['default']['fire'].pause();
+            }
+
+            if(flag_play_music) {
+                if(active_music){
+                    active_music.play();
+                }
+                else
+                    load_music('GOD'); // default...
+            } else {
+                if(active_music){
+                    active_music.pause();
+                }
+
+            }
+        }
         function load_music(god){
             var players = SOUND_PLAYERS['GODS'][god];
 
@@ -1034,18 +1054,8 @@ $(document).ready(function(){
         });
         $('#collapse-shrine-shrine').on('shown.bs.collapse', function (e) {
             $('.shrine-in:first').focus();
+            toggle_sounds();
 
-            if(flag_play_fire) {
-                SOUNDS.shrine['default']['fire'].play();
-            }
-
-            if(flag_play_music) {
-                if(active_music){
-                    active_music.play();
-                }
-                else
-                    load_music('GOD'); // default...
-            }
         });
         $('.shrine-in:first').focus();
 
@@ -1060,13 +1070,33 @@ $(document).ready(function(){
         });
         $('#fire_switch').prop('checked', flag_play_fire);
 
-        $('#btn-mute-shrine').click(function(){
-            flag_mute_all != !flag_mute_all;
-            set_setting('flag_mute_all', flag_mute_all);
-            $(this).removeClass(flag_mute_all?'btn-default':'btn-warning');
-            $(this).addClass(!flag_mute_all?'btn-default':'btn-warning');
-            $(this).html(flag_mute_all?'<i class="glyphicon glyphicon-volume-on"></i>':'<i class="glyphicon glyphicon-volume-off"></i>');
+
+        $('#btn-toggle-shrine-music').click(function(){
+            load_music(active_god);
         });
+
+        function toggle_flag_ui_mute(){
+            $('#btn-mute-shrine').removeClass(!flag_mute_all?'btn-default':'btn-warning');
+            $('#btn-mute-shrine').addClass(flag_mute_all?'btn-default':'btn-warning');
+            $('#btn-mute-shrine').html(flag_mute_all?'<i class="glyphicon glyphicon-volume-up"></i>':'<i class="glyphicon glyphicon-volume-off"></i>');
+            $('#btn-mute-shrine').attr({'title': flag_mute_all?'play sounds in shrine':'mute all sounds in shrine' });
+        }
+        $('#btn-mute-shrine').click(function(){
+            flag_mute_all = !flag_mute_all;
+            set_setting('flag_mute_all', flag_mute_all);
+            toggle_flag_ui_mute();
+
+            // this flag overrides what's in the other sound flags...
+            flag_play_music = !flag_mute_all;
+            flag_play_fire = !flag_mute_all;
+            $('#music_switch').prop('checked', flag_play_music).trigger('change');
+            $('#fire_switch').prop('checked', flag_play_fire).trigger('change');
+            set_setting('flag_play_fire', flag_play_fire);
+            set_setting('flag_play_music', flag_play_music);
+
+            toggle_sounds();
+        });
+        toggle_flag_ui_mute();
 
         $('#god_cipher_off_switch').change(function(){
             checked = $(this).prop('checked');
@@ -1084,13 +1114,7 @@ $(document).ready(function(){
             e.preventDefault();
         });
 
-        // since shrine opens by default
-        if(flag_play_fire) {
-            SOUNDS.shrine['default']['fire'].play();
-        }
-        if(flag_play_music) {
-            load_music('GOD'); 
-        }
+        toggle_sounds();
 
     });
 });
