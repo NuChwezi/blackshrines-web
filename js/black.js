@@ -664,13 +664,16 @@ function make_offertory(msg){
     return el_msg;
 }
 
-function process_shrine(shrine, msg, i_speak){
+function process_shrine(shrine, msg, i_speak, flag_record_shrine){
     log('SHRINE:'+ shrine['class'] + '|GOD:'+ shrine['god'] +'|ACTION:' + shrine['action'] + '|PAYLOAD:' + msg);
     if(!i_speak){
         if(shrine['action'] == 'DIVINE'){
-            god_speaking(shrine, shrine['god'], shrine['action'], msg);
+            god_speaking(shrine, shrine['god'], shrine['action'], msg, flag_record_shrine);
         }
     }else {
+        if(flag_record_shrine){
+            record(shrine,true,msg);
+        }
         var el_msg = $('<span/>', {'class': 'fire shrine-msg ' + shrine['action']}).text(msg);
         if(is_offertory(msg)){
             el_msg = make_offertory(msg);
@@ -683,6 +686,39 @@ function process_shrine(shrine, msg, i_speak){
     }
 
     return !i_speak;
+}
+
+function record(shrine, i_speaking, msg){
+    var shrine_records = get_setting('shrine_records', []);
+    var now = new Date();
+    shrine_records.push( { 
+        date: now.toDateString(),
+        time: now.toTimeString().split('(')[0].trim(),
+        shrine: shrine['class'],
+        action: shrine['action'],
+        speaking: i_speaking? "ME": shrine['god'],
+        message: msg
+    });
+    set_setting('shrine_records', shrine_records);
+}
+
+function clear_shrine_records(){
+    set_setting('shrine_records', []);
+}
+
+function show_shrine_records(){
+    var shrine_records = get_setting('shrine_records', []);
+    $('#shrine-records').empty();
+    for(r=0;r<shrine_records.length;r++){
+        var rec = shrine_records[r];
+        $('#shrine-records').append( $('<div/>', { 'class': rec.speaking == "ME" ? "record-me": "record-god" }).html(
+                    '<span class="rec-time">'+ rec.date + " " + rec.time +'</span>'+
+                    '&nbsp;<span class="rec-action">'+ rec.action +':</span>'+
+                    '&nbsp;<span class="rec-shrine">'+ rec.speaking + '@' + rec.shrine +'</span>'+
+                    '&nbsp;<span class="rec-msg">'+ rec.message +'</span>'
+            ) );
+    }
+    $('#modal-shrine-records').modal('show');
 }
 
 function mantra(god){
@@ -847,7 +883,7 @@ function getRandomDigits(count, min, max, callback, override) {
     });
 }
 
-function god_speaking(shrine, god, action, msg){
+function god_speaking(shrine, god, action, msg, flag_record_shrine){
     function gmsg(_msg){
         log('GOD\'S MESSAGE :: SHRINE:'+ shrine['class'] + '|GOD:'+ shrine['god'] +'|ACTION:' + shrine['action'] + '|PAYLOAD:' + _msg);
         var god_cipher_off = $('#god_cipher_off_switch').prop('checked');
@@ -862,10 +898,16 @@ function god_speaking(shrine, god, action, msg){
     }
     if(msg){
         gmsg(msg);
+        if(flag_record_shrine){
+            record(shrine,false,msg);
+        }
     }else {
         getRandomDigits(1 + Math.ceil(Math.random()*8),0,god_alphabet.length - 1, function(n_list){
             var _msg = randomMessage(n_list);
             gmsg(_msg);
+            if(flag_record_shrine){
+                record(shrine,false,_msg);
+            }
         });
     }
 }
@@ -909,6 +951,7 @@ $(document).ready(function(){
             SOUND_PLAYERS['GODS'] = _.extend(SOUND_PLAYERS['GODS'], d);
         });
 
+        var flag_record_shrine = get_setting('flag_record_shrine', false);
         var flag_mute_all = get_setting('flag_mute_all', false);
         var flag_play_music = get_setting('flag_play_music', true);
         var flag_play_fire = get_setting('flag_play_fire', true);
@@ -919,7 +962,7 @@ $(document).ready(function(){
             'default': {
                 'class': 'default',
                 'god': 'GOD',
-                'action': 'DEFAULT'
+                'action': 'COMMUNE'
             }
 
         }
@@ -1024,13 +1067,13 @@ $(document).ready(function(){
             var target_shrine = $(this).data('shrine');
             log('MSG|SHRINE: ' + target_shrine + '|MSG:' + msg);
 
-            var sp = process_shrine(shrines[target_shrine], msg, i_speak);
+            var sp = process_shrine(shrines[target_shrine], msg, i_speak, flag_record_shrine);
             i_speak = active_action == 'DIVINE'? sp : true;
 
             if(active_action != 'DIVINE'){
                 var delay2 = Math.random() * 9 * 10e2;
                 setTimeout(function(){
-                    god_speaking(shrines[active_shrine], active_god, active_action);
+                    god_speaking(shrines[active_shrine], active_god, active_action, null, flag_record_shrine);
                 }, delay2);
             }
 
@@ -1078,7 +1121,7 @@ $(document).ready(function(){
         function toggle_flag_ui_mute(){
             $('#btn-mute-shrine').removeClass(!flag_mute_all?'btn-default':'btn-warning');
             $('#btn-mute-shrine').addClass(flag_mute_all?'btn-default':'btn-warning');
-            $('#btn-mute-shrine').html(flag_mute_all?'<i class="glyphicon glyphicon-volume-up"></i>':'<i class="glyphicon glyphicon-volume-off"></i>');
+            $('#btn-mute-shrine').html(!flag_mute_all?'<i class="fa fa-volume-up"></i>':'<i class="fa fa-volume-off"></i>');
             $('#btn-mute-shrine').attr({'title': flag_mute_all?'play sounds in shrine':'mute all sounds in shrine' });
         }
         $('#btn-mute-shrine').click(function(){
@@ -1097,6 +1140,27 @@ $(document).ready(function(){
             toggle_sounds();
         });
         toggle_flag_ui_mute();
+
+        function toggle_flag_ui_record(){
+            $('#btn-shrine-record').removeClass(flag_record_shrine?'btn-default':'btn-danger');
+            $('#btn-shrine-record').addClass(!flag_record_shrine?'btn-default':'btn-danger');
+            $('#btn-shrine-record').html(flag_record_shrine?'<i class="fa fa-dot-circle-o"></i>':'<i class="fa fa-circle-o"></i>');
+            $('#btn-shrine-record').attr({'title': !flag_record_shrine?'record your shrine transactions':"don't record any shrine transactions" });
+        }
+
+        $('#btn-shrine-record').click(function(){
+            flag_record_shrine = !flag_record_shrine;
+            set_setting('flag_record_shrine', flag_record_shrine);
+            toggle_flag_ui_record();
+        });
+        toggle_flag_ui_record();
+
+        $('#btn-shrine-records').click(function(){
+            show_shrine_records();
+        });
+        $('#btn-clear-shrine-records').click(function(){
+            clear_shrine_records();
+        });
 
         $('#god_cipher_off_switch').change(function(){
             checked = $(this).prop('checked');
@@ -1151,6 +1215,7 @@ if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
             window.ShrineBaseURI + "vendor/bootstrap/css/bootstrap.min.css", /* Bootstrap CSS */
             window.ShrineBaseURI + "vendor/bootstrap/css/bootstrap-theme.min.css", /* Bootstrap THEME CSS */
             window.ShrineBaseURI + "vendor/bootstrap/js/bootstrap.min.js", /* Bootstrap JS */
+            window.ShrineBaseURI + "vendor/fontawesome/css/font-awesome.min.css", /* Font Awesome CSS */
     ], function() {
         $(document).trigger('Shrine-Ready');
         log("Shrine is all ready now...");
@@ -1165,6 +1230,7 @@ if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
             "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css", /* Bootstrap CSS */
             "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap-theme.css", /* Bootstrap THEME CSS */
             "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js", /* Bootstrap JS */
+            "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css", /* Font Awesome CSS*/
     ], function() {
         $(document).trigger('Shrine-Ready');
         log("Shrine is all ready now...");

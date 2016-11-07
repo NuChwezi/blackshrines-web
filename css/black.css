@@ -449,3 +449,24 @@ input.check-switch{
 .logo-sigil {
     height: 40px;
 }
+
+.record-me {
+    font-size: small;
+    color: black;
+}
+.record-god {
+    font-size: small;
+    color: firebrick;
+}
+.rec-msg {
+    font-weight: bold;
+}
+.rec-time {
+    font-style: italic;
+    font-size: 10px;
+}
+
+#shrine-records {
+    max-height: 55vh;
+    overflow-y: auto;
+}
