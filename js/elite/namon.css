@@ -1,0 +1,19 @@
+.shrine.god-NAMON{
+    background-color:rgba(40, 171, 177, 0.64);
+    color: #f1d483;
+    border-color:#f1d483;
+    /* for shrine sigil */
+    background-image: url(../../images/sigils/namon.png);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-position-y: 20px;
+    /* end sigil */
+}
+.god-NAMON .cipher{
+    color: #f1d483;
+    font-family: Tahom; /*cipher_lxxfog;*/
+}
+.god-NAMON .god-msg{
+    color: #f1d483;
+    font-family: cipher_lxxfog;
+}

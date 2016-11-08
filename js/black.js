@@ -721,87 +721,88 @@ function show_shrine_records(){
     $('#modal-shrine-records').modal('show');
 }
 
+var mantras = {
+    'TAHUTI': [
+        "AS ABOVE SO IT IS BELOW",
+        "ALL POWER IS WITHIN U",
+        "WHO WRITES, CAN CREATE",
+        "SEEK THE DOOR",
+        "LOOK WITHIN, I AM HE",
+    ],
+    'NYAMIYONGA': [
+        "I AM H THAT RIGNS VR LIF AND DATH",
+        "IJA KUZIMU",
+        "IJA BMZI",
+    ],
+    'SET': [
+        "I AM WITHIN AND BEYOND YOU THE HIGHEST OF LIFE",
+        "THE ESSENCE OF MY BEING IS ENSHRINED WITHIN YOU",
+        "I CALL UPON YOU TO RISE IN YOUR GLORY",
+        "BEHOLD THE GENIUS OF YOUR CREATION",
+    ],
+    'ENKYA_YA_ENKYA': [
+        "NINYE MANDWA IGURU NENSI",
+    ],
+    'SATAN': [
+        "DEATH TO THE WEAKLING, WEALTH TO THE STRONG",
+        "I STAND FORTH TO CHALLENGE THE WISDOM OF THE WORLD",
+        "I QUESTION ALL THINGS",
+        "ANNIHILATE THEM, OR THEY WILL US",
+        "HATE YOUR ENEMIES WITH A WHOLE HEART",
+        "GIVE BLOW FOR BLOW, SCORN FOR SCORN, DOOM FOR DOOM",
+        "LIFE IS THE GREAT INDULGENCE - DEATH, THE GREAT ABSTINENCE",
+        "NO HEAVEN OF GLORY BRIGHT, AND NO HELL WHERE SINNERS ROAST",
+        "CHOOSE YE THIS DAY, THIS HOUR, FOR NO REDEEMER LIVETH",
+        "I AM MINE OWN REDEEMER",
+        "BLESSED ARE THE STRONG, FOR THEY SHALL POSSESS THE EARTH",
+        "BLESSED ARE THE POWERFUL, FOR THEY SHALL BE REVERENCED AMONG MEN",
+        "I AM HE THAT KILLETH THE JEHOVAH IN YOU"
+    ],
+    'LUCIFER': [
+        "I AM THE WAY",
+        "I AM THE TRUTH",
+        "I AM THE LIGHT",
+    ],
+    'LEVIATAN': [
+        "I SET LOOSE THE DESIRES IN YOU",
+        "MAY YOU BE OVERWHELMED WITH JOY",
+        "I UNLEASH LUST UNTO YOU",
+        "THE CHAINS OF VIRTUE BE LOOSENED!",
+        "INDULGE OR PERISH",
+    ],
+    'BELIAL': [
+        "YOUR WILL BE DONE",
+        "IF YOU CAN'T WILL, YOU DESERVE TO DIE",
+        "I GIVE TO YOU THE POWER TO BE",
+        "ON THIS EARTH, BE BLESSED",
+        "DRINK OF MY POWER, YOU WILL NOT THIRST",
+        "BE PRAGMATIC MAN, BE PRAGMATIC!",
+        "FUCK FATANSY, HEAVEN AND HELL ARE HERE RIGHT NOW",
+        "CREATE YOUR DESTINY",
+        "USE YOUR MIND",
+        "THINK, STUPID!",
+    ],
+    'BEAST_666': [
+        "I AM THE WAY",
+        "I AM THE TRUTH",
+        "I AM THE LIGHT",
+        "I AM THE TRUE CHRIST",
+        "FUCK THE NAZARENE",
+        "FUCK THE POPE",
+        "FUCK THE BLOODY MARY",
+        "I DEBAPTIZE YOU NOW",
+        "EAT OF ME, DRINK OF ME",
+    ],
+    'DAEMON': [
+        "I AM THAT I AM",
+        "IN ME IS THE POWER",
+        "I, GOD",
+        "I, SERVE NONE",
+    ]
+};
+
 function mantra(god){
 
-    var mantras = {
-        'TAHUTI': [
-            "AS ABOVE SO IT IS BELOW",
-            "ALL POWER IS WITHIN U",
-            "WHO WRITES, CAN CREATE",
-            "SEEK THE DOOR",
-            "LOOK WITHIN, I AM HE",
-        ],
-        'NYAMIYONGA': [
-            "I AM H THAT RIGNS VR LIF AND DATH",
-            "IJA KUZIMU",
-            "IJA BMZI",
-        ],
-        'SET': [
-            "I AM WITHIN AND BEYOND YOU THE HIGHEST OF LIFE",
-            "THE ESSENCE OF MY BEING IS ENSHRINED WITHIN YOU",
-            "I CALL UPON YOU TO RISE IN YOUR GLORY",
-            "BEHOLD THE GENIUS OF YOUR CREATION",
-        ],
-        'ENKYA_YA_ENKYA': [
-            "NINYE MANDWA IGURU NENSI",
-        ],
-        'SATAN': [
-            "DEATH TO THE WEAKLING, WEALTH TO THE STRONG",
-            "I STAND FORTH TO CHALLENGE THE WISDOM OF THE WORLD",
-            "I QUESTION ALL THINGS",
-            "ANNIHILATE THEM, OR THEY WILL US",
-            "HATE YOUR ENEMIES WITH A WHOLE HEART",
-            "GIVE BLOW FOR BLOW, SCORN FOR SCORN, DOOM FOR DOOM",
-            "LIFE IS THE GREAT INDULGENCE - DEATH, THE GREAT ABSTINENCE",
-            "NO HEAVEN OF GLORY BRIGHT, AND NO HELL WHERE SINNERS ROAST",
-            "CHOOSE YE THIS DAY, THIS HOUR, FOR NO REDEEMER LIVETH",
-            "I AM MINE OWN REDEEMER",
-            "BLESSED ARE THE STRONG, FOR THEY SHALL POSSESS THE EARTH",
-            "BLESSED ARE THE POWERFUL, FOR THEY SHALL BE REVERENCED AMONG MEN",
-            "I AM HE THAT KILLETH THE JEHOVAH IN YOU"
-        ],
-        'LUCIFER': [
-            "I AM THE WAY",
-            "I AM THE TRUTH",
-            "I AM THE LIGHT",
-        ],
-        'LEVIATAN': [
-            "I SET LOOSE THE DESIRES IN YOU",
-            "MAY YOU BE OVERWHELMED WITH JOY",
-            "I UNLEASH LUST UNTO YOU",
-            "THE CHAINS OF VIRTUE BE LOOSENED!",
-            "INDULGE OR PERISH",
-        ],
-        'BELIAL': [
-            "YOUR WILL BE DONE",
-            "IF YOU CAN'T WILL, YOU DESERVE TO DIE",
-            "I GIVE TO YOU THE POWER TO BE",
-            "ON THIS EARTH, BE BLESSED",
-            "DRINK OF MY POWER, YOU WILL NOT THIRST",
-            "BE PRAGMATIC MAN, BE PRAGMATIC!",
-            "FUCK FATANSY, HEAVEN AND HELL ARE HERE RIGHT NOW",
-            "CREATE YOUR DESTINY",
-            "USE YOUR MIND",
-            "THINK, STUPID!",
-        ],
-        'BEAST_666': [
-            "I AM THE WAY",
-            "I AM THE TRUTH",
-            "I AM THE LIGHT",
-            "I AM THE TRUE CHRIST",
-            "FUCK THE NAZARENE",
-            "FUCK THE POPE",
-            "FUCK THE BLOODY MARY",
-            "I DEBAPTIZE YOU NOW",
-            "EAT OF ME, DRINK OF ME",
-        ],
-        'DAEMON': [
-            "I AM THAT I AM",
-            "IN ME IS THE POWER",
-            "I, GOD",
-            "I, SERVE NONE",
-        ]
-    };
 
     return mantras[god][Math.floor(Math.random()*mantras[god].length)] || "IF YOU DON'T CREATE YOUR OWN GODS YOU WILL BE A SLAVE TO ANOTHER MAN'S";
 
@@ -1213,9 +1214,10 @@ if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
             window.ShrineBaseURI + "vendor/howler/js/howler.min.js", /* Howler JS */
             window.ShrineBaseURI + "vendor/underscore/js/underscore-min.js", /* Underscore JS */
             window.ShrineBaseURI + "vendor/bootstrap/css/bootstrap.min.css", /* Bootstrap CSS */
-            //window.ShrineBaseURI + "vendor/bootstrap/css/bootstrap-theme.min.css", /* Bootstrap THEME CSS */
             window.ShrineBaseURI + "vendor/bootstrap/js/bootstrap.min.js", /* Bootstrap JS */
             window.ShrineBaseURI + "vendor/fontawesome/css/font-awesome.min.css", /* Font Awesome CSS */
+            window.ShrineBaseURI + "js/elite/namon.js", /* NAMON */
+            window.ShrineBaseURI + "js/elite/namon.css", /* NAMON */
     ], function() {
         $(document).trigger('Shrine-Ready');
         log("Shrine is all ready now...");
@@ -1228,8 +1230,6 @@ if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
             "https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.1/howler.min.js", /* Howler JS */
             "https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js", /* Underscore JS */
             "http://bootswatch.com/darkly/bootstrap.min.css",
-            //"https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css", /* Bootstrap CSS */
-            //"https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap-theme.css", /* Bootstrap THEME CSS */
             "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js", /* Bootstrap JS */
             "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css", /* Font Awesome CSS*/
     ], function() {
