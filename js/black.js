@@ -1051,9 +1051,9 @@ $(document).ready(function(){
                         $('.shrine-in:first').focus();
                         active_action = classify(choice);
                         if(active_action != 'DIVINE'){
-                            $('.shrine-in:first').attr({'placeholder': 'Speak to your Gods... decipher what they say back.'})
+                            $('.shrine-in:first').attr({'placeholder': 'Speak to your Godfriends... decipher their response.'})
                         }else {
-                            $('.shrine-in:first').attr({'placeholder': 'Access this God or being, directly from within...'})
+                            $('.shrine-in:first').attr({'placeholder': 'Access divinity, directly from within...'})
                         }
                     }
                     break;
