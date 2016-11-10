@@ -10,6 +10,9 @@ $(document).ready(function() {
         "INVEST! DON'T WASTE!",
         "WHY NOT SAVE IF YOU CAN?",
         "DON'T WASTE TIME!",
+        "DON'T BE AFRAID OF MAKING MONEY. IT's NOBLE",
+        "VALUE YOURSELF HIGH, YOU WILL EARN MORE",
+        "GET USED TO FEELING RICH, YOU WILL ATTRACT WEALTH",
         "I BLESS YOU. GO ON, BE WEALTHY!",
     ];
 
