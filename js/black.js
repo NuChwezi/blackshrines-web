@@ -954,7 +954,7 @@ $(document).ready(function(){
 
         var flag_record_shrine = get_setting('flag_record_shrine', false);
         var flag_mute_all = get_setting('flag_mute_all', false);
-        var flag_play_music = get_setting('flag_play_music', true);
+        var flag_play_music = get_setting('flag_play_music', false);
         var flag_play_fire = get_setting('flag_play_fire', true);
 
         var active_shrine = 'default', active_god = null, active_action = null;
