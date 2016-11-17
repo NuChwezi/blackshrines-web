@@ -1,7 +1,7 @@
 $(document).ready(function() {
     SOUND_RES['GODS']['NAMON'] = [
         'sounds/music/lucifer/Vangelis - chariots of fire.mp3',
-        'sounds/music/namon/Brian Eno - An Ending.mp3',
+        'sounds/music/namon/Mythos - June.mp3',
     ];
     mantras['NAMON'] = [
         "DEATH TO THE WEAKLING, WEALTH TO THE STRONG",
