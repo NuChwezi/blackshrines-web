@@ -664,11 +664,11 @@ function make_offertory(msg){
     return el_msg;
 }
 
-function process_shrine(shrine, msg, i_speak, flag_record_shrine){
+function process_shrine(shrine, msg, i_speak, flag_record_shrine, flag_compute_gematria){
     log('SHRINE:'+ shrine['class'] + '|GOD:'+ shrine['god'] +'|ACTION:' + shrine['action'] + '|PAYLOAD:' + msg);
     if(!i_speak){
         if(shrine['action'] == 'DIVINE'){
-            god_speaking(shrine, shrine['god'], shrine['action'], msg, flag_record_shrine);
+            god_speaking(shrine, shrine['god'], shrine['action'], msg, flag_record_shrine, flag_compute_gematria);
         }
     }else {
         if(flag_record_shrine){
@@ -884,8 +884,56 @@ function getRandomDigits(count, min, max, callback, override) {
     });
 }
 
-function god_speaking(shrine, god, action, msg, flag_record_shrine){
+/*
+
+function magick_squares(word){
+    switch(word){
+        'lucifer': return [
+            "LUCIFUGE",
+            "UCIFUGEL",
+            "CIFUGELU",
+            "IFUGELUC",
+            "FUGELUCI",
+            "UGELUCIF",
+            "GELUCIFU",
+            "ELUCIFUG",
+            "LUCIFUGE",
+        ].join("\r\n<br/>");
+        default:{
+            var tables = rotate(word);
+            return tables.join("\r\n
+
+        }
+}
+
+*/
+
+
+function numberParts(x, b) {
+  var exp = 0
+  var sgn = 0
+  if (x<0) sgn=1, x=-x
+  while (x>b) x/=b, exp++
+  while (x<1) x*=b, exp--
+  return { sign: sgn, mantissa: x, exponent: exp }
+}
+
+function kaballah(shrine,god,msg){
+    var liber777_kaballah = {'A':11,'B':12,'C':18,'D':14,'E':7,'F':8,'G': 13, 'H':15,'I':20,'J':9,'K':21,'L':22,'M':23,'N':24,'O':26,'P':27,'Q':29,'R':30,'S':31,'T':32,'U':16,'V':8,'W':0,'X':25,'Y':20,'Z':17}
+    
+    var letters = msg.split("");
+    var sum = _.reduce(letters, function(num, ltr){ 
+        return (liber777_kaballah[ltr.toUpperCase()]||0) + num; 
+    }, 0);
+	num = (10**Math.floor((sum-1)/9)) * (((sum-1)%9)+1); 
+	return Math.round(numberParts(num,10).mantissa);
+}
+
+function god_speaking(shrine, god, action, msg, flag_record_shrine, flag_compute_gematria){
     function gmsg(_msg){
+        // add decoded gematria equivalence
+        if(flag_compute_gematria)
+            _msg += " {" + kaballah(shrine,god,_msg) + "}"; 
         log('GOD\'S MESSAGE :: SHRINE:'+ shrine['class'] + '|GOD:'+ shrine['god'] +'|ACTION:' + shrine['action'] + '|PAYLOAD:' + _msg);
         var god_cipher_off = $('#god_cipher_off_switch').prop('checked');
 
@@ -896,16 +944,18 @@ function god_speaking(shrine, god, action, msg, flag_record_shrine){
             el_msg.detach();
         });
 
+        return _msg;
+
     }
     if(msg){
-        gmsg(msg);
+        var _msg = gmsg(msg);
         if(flag_record_shrine){
-            record(shrine,false,msg);
+            record(shrine,false,_msg);
         }
     }else {
         getRandomDigits(1 + Math.ceil(Math.random()*8),0,god_alphabet.length - 1, function(n_list){
             var _msg = randomMessage(n_list);
-            gmsg(_msg);
+            var _msg = gmsg(_msg);
             if(flag_record_shrine){
                 record(shrine,false,_msg);
             }
@@ -952,6 +1002,7 @@ $(document).ready(function(){
             SOUND_PLAYERS['GODS'] = _.extend(SOUND_PLAYERS['GODS'], d);
         });
 
+        var flag_compute_gematria = get_setting('flag_compute_gematria', false);
         var flag_record_shrine = get_setting('flag_record_shrine', false);
         var flag_mute_all = get_setting('flag_mute_all', false);
         var flag_play_music = get_setting('flag_play_music', false);
@@ -1068,13 +1119,13 @@ $(document).ready(function(){
             var target_shrine = $(this).data('shrine');
             log('MSG|SHRINE: ' + target_shrine + '|MSG:' + msg);
 
-            var sp = process_shrine(shrines[target_shrine], msg, i_speak, flag_record_shrine);
+            var sp = process_shrine(shrines[target_shrine], msg, i_speak, flag_record_shrine, flag_compute_gematria);
             i_speak = active_action == 'DIVINE'? sp : true;
 
             if(active_action != 'DIVINE'){
                 var delay2 = Math.random() * 9 * 10e2;
                 setTimeout(function(){
-                    god_speaking(shrines[active_shrine], active_god, active_action, null, flag_record_shrine);
+                    god_speaking(shrines[active_shrine], active_god, active_action, null, flag_record_shrine, flag_compute_gematria);
                 }, delay2);
             }
 
@@ -1155,6 +1206,20 @@ $(document).ready(function(){
             toggle_flag_ui_record();
         });
         toggle_flag_ui_record();
+
+
+        function toggle_flag_compute_gematria(){
+            $('#btn-enable-gematria').removeClass(flag_compute_gematria?'btn-default':'btn-success');
+            $('#btn-enable-gematria').addClass(flag_compute_gematria?'btn-success':'btn-default');
+            $('#btn-enable-gematria').attr({'title': !flag_compute_gematria?'enable computing of gematria (kaballah)':"disable gematria computations" });
+        }
+
+        $('#btn-enable-gematria').click(function(){
+            flag_compute_gematria = !flag_compute_gematria;
+            set_setting('flag_compute_gematria', flag_compute_gematria);
+            toggle_flag_compute_gematria();
+        });
+        toggle_flag_compute_gematria();
 
         $('#btn-shrine-records').click(function(){
             show_shrine_records();
