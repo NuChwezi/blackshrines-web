@@ -596,11 +596,11 @@ var SOUND_RES = {
             'sounds/music/belial/Blut Aus Nord - Ultima Thule - My Prayer Beyond Ginnungagap.mp3',
             'sounds/music/belial/Minds Of Infinity - First Human.mp3',
         ],
-        'ENKYA_YA_ENKYA': [
-            'sounds/music/enkya_ya_enkya/Deep Forest - New Dawn.mp3',
-            'sounds/music/enkya_ya_enkya/Dead Can Dance - Ariadne.mp3',
-            'sounds/music/enkya_ya_enkya/The Kamkars - Chant of Drums.mp3',
-            'sounds/music/enkya_ya_enkya/XTribe - African Drum.mp3',
+        'RUHANGA_KITARA_MUSANA': [
+            'sounds/music/RUHANGA_KITARA_MUSANA/Deep Forest - New Dawn.mp3',
+            'sounds/music/RUHANGA_KITARA_MUSANA/Dead Can Dance - Ariadne.mp3',
+            'sounds/music/RUHANGA_KITARA_MUSANA/The Kamkars - Chant of Drums.mp3',
+            'sounds/music/RUHANGA_KITARA_MUSANA/XTribe - African Drum.mp3',
         ],
         'NYAMIYONGA': [
             'sounds/music/nyamiyonga/Monumentum - Fade To Gray.mp3',
@@ -740,7 +740,7 @@ var mantras = {
         "I CALL UPON YOU TO RISE IN YOUR GLORY",
         "BEHOLD THE GENIUS OF YOUR CREATION",
     ],
-    'ENKYA_YA_ENKYA': [
+    'RUHANGA_KITARA_MUSANA': [
         "NINYE MANDWA IGURU NENSI",
     ],
     'SATAN': [

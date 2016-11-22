@@ -285,21 +285,21 @@ input.check-switch{
     background-position-y: 20px;
     /* end sigil */
 }
-.shrine.god-ENKYA_YA_ENKYA{
+.shrine.god-RUHANGA_KITARA_MUSANA{
     background-color: rgba(166, 235, 255, 0.62);
     color: #170115;
     border-color:#170115;
     /* for shrine sigil */
-    background-image: url(../images/sigils/enkya_ya_enkya.png);
+    background-image: url(../images/sigils/RUHANGA_KITARA_MUSANA.png);
     background-position: top;
     background-repeat: no-repeat;
     background-position-y: 20px;
     /* end sigil */
 }
-.god-ENKYA_YA_ENKYA .cipher{
+.god-RUHANGA_KITARA_MUSANA .cipher{
     color: #170115;
 }
-.god-ENKYA_YA_ENKYA .god-msg{
+.god-RUHANGA_KITARA_MUSANA .god-msg{
     color: #170115;
 }
 .shrine.god-LEVIATAN{
@@ -469,4 +469,8 @@ input.check-switch{
 #shrine-records {
     max-height: 55vh;
     overflow-y: auto;
+}
+
+li.divider-title {
+    margin-left: 5px;
 }
