@@ -601,6 +601,7 @@ var SOUND_RES = {
             'sounds/music/RUHANGA_KITARA_MUSANA/Dead Can Dance - Ariadne.mp3',
             'sounds/music/RUHANGA_KITARA_MUSANA/The Kamkars - Chant of Drums.mp3',
             'sounds/music/RUHANGA_KITARA_MUSANA/XTribe - African Drum.mp3',
+            'sounds/music/RUHANGA_KITARA_MUSANA/Ancient Egyptian Music - Creator Sun God Instrumental III-IV.mp3',
         ],
         'NYAMIYONGA': [
             'sounds/music/nyamiyonga/Monumentum - Fade To Gray.mp3',
