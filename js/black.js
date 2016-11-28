@@ -942,7 +942,7 @@ function god_speaking(shrine, god, action, msg, flag_record_shrine, flag_compute
         $('.shrine.' + shrine['class']).append(el_msg);
         var dur = 666 * 66;
         $(el_msg).stop().animate({'bottom': '110'}, Math.floor(dur * 0.5)).fadeTo( dur, 0 , function() {
-            el_msg.detach();
+            el_msg.remove();
         });
 
         return _msg;
