@@ -926,7 +926,7 @@ function kaballah(shrine,god,msg){
     var sum = _.reduce(letters, function(num, ltr){ 
         return (liber777_kaballah[ltr.toUpperCase()]||0) + num; 
     }, 0);
-	num = (10**Math.floor((sum-1)/9)) * (((sum-1)%9)+1); 
+	num = (Math.pow(10,Math.floor((sum-1)/9))) * (((sum-1)%9)+1); 
 	return Math.round(numberParts(num,10).mantissa);
 }
 
