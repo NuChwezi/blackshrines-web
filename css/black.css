@@ -68,7 +68,7 @@ body {
 }
 
 a {
-    color: #f0ad4e;
+    color:#f3cf0a;
     text-decoration: none;
 }
 
@@ -84,7 +84,7 @@ input.check-switch{
 .banner {
     font-family: Triballa;
     font-size: larger;
-    color: crimson;
+    color: #f3cf0a;
 }
 
 #header h1 {
