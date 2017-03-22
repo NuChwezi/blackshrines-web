@@ -44,6 +44,10 @@
     src: url(fonts/cipher_lxxfog.ttf);
 }
 
+@font-face {
+    font-family: cipher_utugsewu;
+    src: url(fonts/cipher_utugsewu.ttf);
+}
 
 /*
  * OFFERINGS, cREATURES, things to offer to the gods, or what the gods would offer to us.
@@ -392,6 +396,33 @@ input.check-switch{
     }
 }
 
+.shrine.god-BAPHOMET{
+    background-color: rgba(239, 17, 17, 0.63);
+    color: #ffd8d8;
+    border-color:#ffd8d8;
+    /* for shrine sigil */
+    background-image: url(../images/sigils/baphomet.png);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-position-y: 20px;
+    /* end sigil */
+}
+.god-BAPHOMET .cipher{
+    color: #ffd8d8;
+    font-family: cipher_utugsewu;
+    font-size: 49px;
+}
+
+.god-BAPHOMET .god-msg{
+    color: rgba(109, 115, 113, 0.97);
+    font-family: cipher_tlvgrx;
+    font-size: 80px;
+}
+@media (max-width:768px) {
+    .god-BAPHOMET .cipher{
+        font-size: 36px;
+    }
+}
 
 
 .fire {

@@ -581,6 +581,13 @@ var SOUND_RES = {
             'sounds/music/daemon/Pavo_-_Raven.mp3',
             'sounds/music/daemon/Brennan Heart - we are possessed ( headhunterz remix ).mp3',
         ],
+        'BAPHOMET': [
+            'sounds/music/daemon/Pavo_-_Raven.mp3',
+            'sounds/music/satan/Gay Satanic Hippie - Bauchweh.mp3',
+            'sounds/music/satan/The Serpent - Ksiazki.mp3',
+            'sounds/music/satan/Blut Aus Nord - The Howling Of God.mp3',
+            'sounds/music/satan/Daemonarch - The Seventh Daemonarch.mp3',
+        ],
         'TAHUTI': [
             'sounds/music/tahuti/Enigma - Goodbye Milky Way.mp3',
             'sounds/music/tahuti/Dead Can Dance - Agape.mp3',
@@ -799,6 +806,11 @@ var mantras = {
         "IN ME IS THE POWER",
         "I, GOD",
         "I, SERVE NONE",
+    ],
+    'BAPHOMET': [
+        "I, HIDDEN ONE",
+        "I, WHO SHALL ENDURE",
+        "I, THE GREAT SPIRIT",
     ]
 };
 
