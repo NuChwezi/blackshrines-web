@@ -505,3 +505,13 @@ input.check-switch{
 li.divider-title {
     margin-left: 5px;
 }
+
+.fullscreen {
+   height: 95vh;
+    width: 99vw;
+    position: absolute;
+    top: 1%;
+    left: 0;
+    z-index: 9999;
+    margin-left: -10%;
+}

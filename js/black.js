@@ -1234,6 +1234,23 @@ $(document).ready(function(){
         });
         toggle_flag_compute_gematria();
 
+        function toggle_fullscreen_shrine(on){
+            if(on){
+                $('#btn-enable-fullscreen').removeClass('btn-default');
+                $('#btn-enable-fullscreen').addClass('btn-success');
+                $('#panel-shrine').addClass('fullscreen');
+            }else {
+                $('#btn-enable-fullscreen').addClass('btn-default');
+                $('#btn-enable-fullscreen').removeClass('btn-success');
+                $('#panel-shrine').removeClass('fullscreen');
+            }
+        }
+        var flag_fullscreen_shrine = false;
+        $('#btn-enable-fullscreen').click(function(){
+            flag_fullscreen_shrine = !flag_fullscreen_shrine;
+            toggle_fullscreen_shrine(flag_fullscreen_shrine);
+        });
+
         $('#btn-shrine-records').click(function(){
             show_shrine_records();
         });
