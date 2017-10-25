@@ -1327,6 +1327,8 @@ if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
             "http://bootswatch.com/darkly/bootstrap.min.css",
             "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js", /* Bootstrap JS */
             "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css", /* Font Awesome CSS*/
+            window.ShrineBaseURI + "js/elite/namon.js", /* NAMON */
+            window.ShrineBaseURI + "js/elite/namon.css", /* NAMON */
     ], function() {
         $(document).trigger('Shrine-Ready');
         log("Shrine is all ready now...");
