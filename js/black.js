@@ -1309,7 +1309,6 @@ if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
             window.ShrineBaseURI + "vendor/howler/js/howler.min.js", /* Howler JS */
             window.ShrineBaseURI + "vendor/underscore/js/underscore-min.js", /* Underscore JS */
             window.ShrineBaseURI + "vendor/bootstrap/css/bootstrap.min.css", /* Bootstrap CSS */
-			 window.ShrineBaseURI + "css/theme/darkly.css", /* DARKLY */
             window.ShrineBaseURI + "vendor/bootstrap/js/bootstrap.min.js", /* Bootstrap JS */
             window.ShrineBaseURI + "vendor/fontawesome/css/font-awesome.min.css", /* Font Awesome CSS */
             window.ShrineBaseURI + "js/elite/namon.js", /* NAMON */
@@ -1325,11 +1324,9 @@ if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
             //"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js", /* JQuery JS */
             "https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.1/howler.min.js", /* Howler JS */
             "https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js", /* Underscore JS */
-             window.ShrineBaseURI + "css/theme/darkly.css", /* DARKLY */
+            window.ShrineBaseURI + "vendor/bootstrap/css/bootstrap.min.css", /* Bootstrap CSS */
             "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js", /* Bootstrap JS */
             "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css", /* Font Awesome CSS*/
-            window.ShrineBaseURI + "js/elite/namon.js", /* NAMON */
-            window.ShrineBaseURI + "js/elite/namon.css", /* NAMON */
     ], function() {
         $(document).trigger('Shrine-Ready');
         log("Shrine is all ready now...");
