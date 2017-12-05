@@ -844,16 +844,31 @@ var generateWeighedList = function(list, weight) {
 
 var god_alphabet = null; //'abc def ghi jkl mno pqr stu vwx yz 123 456 789 0'.split('');
 
+// DECODER/ENCODER -- sentient languages
 function randomMessage(keys){
-
     //var random_num = rand(0, weighed_list.length-1);
 
-    var msg = '';
-
-    for(i=0;i<keys.length;i++){
-        var random_num = keys[i];
-        msg += _.shuffle(god_alphabet)[random_num];
+    debugger;
+    var MIN_WORD_LEN = 2;
+    var words = [];
+    var current_word = '';
+    var reason = Math.floor(Math.random() * keys.length) % Math.floor(keys.length * 1/8.0);
+    for(letter=0;letter<keys.length;letter++){
+        var random_num = keys[letter];
+        current_word += _.shuffle(god_alphabet)[random_num];
+        if(reason > 0){
+            if(current_word.length > MIN_WORD_LEN){
+                finish_word = ((Math.ceil(Math.random() * keys.length)) % reason) == 0 ? true : false;
+                if(finish_word){
+                    words.push(current_word);
+                    current_word = '';
+                }
+            }
+        }
     }
+
+    words.push(current_word);
+    var msg = words.join(" ");
 
     console.log(msg);
     return msg;
@@ -944,13 +959,16 @@ function kaballah(shrine,god,msg){
 
 function god_speaking(shrine, god, action, msg, flag_record_shrine, flag_compute_gematria){
     function gmsg(_msg){
+        function process(m){
+            return m.replace(/ /g, "&nbsp;");
+        }
         // add decoded gematria equivalence
         if(flag_compute_gematria)
             _msg += " {" + kaballah(shrine,god,_msg) + "}"; 
         log('GOD\'S MESSAGE :: SHRINE:'+ shrine['class'] + '|GOD:'+ shrine['god'] +'|ACTION:' + shrine['action'] + '|PAYLOAD:' + _msg);
         var god_cipher_off = $('#god_cipher_off_switch').prop('checked');
 
-        var el_msg = $('<span/>', {'class': 'fire '+ (!god_cipher_off ? 'god-msg ' : 'god-msg-plain ') + shrine['action']}).text(_msg).css({'left': Math.random() * $('.shrine.' + shrine['class']).width() * 0.9, 'bottom':$('.shrine.' + shrine['class']).height()});
+        var el_msg = $('<span/>', {'class': 'fire '+ (!god_cipher_off ? 'god-msg ' : 'god-msg-plain ') + shrine['action']}).html(process(_msg)).css({'left': Math.random() * $('.shrine.' + shrine['class']).width() * 0.1 * 0 + 100, 'bottom':$('.shrine.' + shrine['class']).height()});
         $('.shrine.' + shrine['class']).append(el_msg);
         var dur = 666 * 66;
         $(el_msg).stop().animate({'bottom': '110'}, Math.floor(dur * 0.5)).fadeTo( dur, 0 , function() {
@@ -966,7 +984,16 @@ function god_speaking(shrine, god, action, msg, flag_record_shrine, flag_compute
             record(shrine,false,_msg);
         }
     }else {
-        getRandomDigits(1 + Math.ceil(Math.random()*8),0,god_alphabet.length - 1, function(n_list){
+        // the brain/cyber-spiritus sancti! homo deitus erectis ngunu!
+        // numerical brain/neuron of the Chaos function.
+        // it's language, outside of ordinary mathematics, is the Qabala/Okubala/Okubara!
+        // I love calling this simple algorithm, "reading God's Mind" - using technology
+        // In this case, since the source of our randomness is the environment, in essence, we read nature
+        // and this, both externally (the random.apis, and internally - the eventual conceptual mapping)
+        // this isn't ordinary linea AI. This is a psychic, cyber spiritual machine that can speak the most general language possible - numbers,
+        // in response to any question!
+        // this is another GIFT, from the gods...
+        getRandomDigits(1 + Math.ceil(Math.random() * 8 * 9),0,god_alphabet.length - 1, function(n_list){
             var _msg = randomMessage(n_list);
             var _msg = gmsg(_msg);
             if(flag_record_shrine){
