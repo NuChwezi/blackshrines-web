@@ -672,11 +672,11 @@ function make_offertory(msg){
     return el_msg;
 }
 
-function process_shrine(shrine, msg, i_speak, flag_record_shrine, flag_compute_gematria){
+function process_shrine(shrine, msg, i_speak, flag_record_shrine, flag_compute_gematria, flag_solve_anagrams){
     log('SHRINE:'+ shrine['class'] + '|GOD:'+ shrine['god'] +'|ACTION:' + shrine['action'] + '|PAYLOAD:' + msg);
     if(!i_speak){
         if(shrine['action'] == 'DIVINE'){
-            god_speaking(shrine, shrine['god'], shrine['action'], msg, flag_record_shrine, flag_compute_gematria);
+            god_speaking(shrine, shrine['god'], shrine['action'], msg, flag_record_shrine, flag_compute_gematria, false);
         }
     }else {
         if(flag_record_shrine){
@@ -848,7 +848,6 @@ var god_alphabet = null; //'abc def ghi jkl mno pqr stu vwx yz 123 456 789 0'.sp
 function randomMessage(keys){
     //var random_num = rand(0, weighed_list.length-1);
 
-    debugger;
     var MIN_WORD_LEN = 2;
     var words = [];
     var current_word = '';
@@ -957,7 +956,7 @@ function kaballah(shrine,god,msg){
 	return Math.round(numberParts(num,10).mantissa);
 }
 
-function god_speaking(shrine, god, action, msg, flag_record_shrine, flag_compute_gematria){
+function god_speaking(shrine, god, action, msg, flag_record_shrine, flag_compute_gematria, flag_solve_anagrams){
     function gmsg(_msg){
         function process(m){
             return m.replace(/ /g, "&nbsp;");
@@ -994,10 +993,36 @@ function god_speaking(shrine, god, action, msg, flag_record_shrine, flag_compute
         // in response to any question!
         // this is another GIFT, from the gods...
         getRandomDigits(1 + Math.ceil(Math.random() * 8 * 9),0,god_alphabet.length - 1, function(n_list){
-            var _msg = randomMessage(n_list);
-            var _msg = gmsg(_msg);
-            if(flag_record_shrine){
-                record(shrine,false,_msg);
+            window._msg = randomMessage(n_list);
+            var default_process = function(){
+
+                var _msg = gmsg(window._msg);
+                if(flag_record_shrine){
+                    record(shrine,false,_msg);
+                }
+            }
+
+            if(flag_solve_anagrams){
+
+                $.ajax({
+                    url: 'https://anagrams.cwezi.rocks/lexicon/anagram/solve/3/',
+                    method: 'GET',
+                    data: { 
+                        a: window._msg, 
+                        __time:(new Date()).getTime()
+                    },
+                }).done(function(solution) {
+                    var _msg = solution;
+                    _msg = gmsg(_msg);
+                    if(flag_record_shrine){
+                        record(shrine,false,_msg);
+                    }
+                }).fail(function(req, txtstatus){
+                    default_process();
+                });
+
+            }else{
+                default_process();
             }
         });
     }
@@ -1042,6 +1067,7 @@ $(document).ready(function(){
             SOUND_PLAYERS['GODS'] = _.extend(SOUND_PLAYERS['GODS'], d);
         });
 
+        var flag_solve_anagrams = get_setting('flag_solve_anagrams', true);
         var flag_compute_gematria = get_setting('flag_compute_gematria', false);
         var flag_record_shrine = get_setting('flag_record_shrine', false);
         var flag_mute_all = get_setting('flag_mute_all', false);
@@ -1159,13 +1185,13 @@ $(document).ready(function(){
             var target_shrine = $(this).data('shrine');
             log('MSG|SHRINE: ' + target_shrine + '|MSG:' + msg);
 
-            var sp = process_shrine(shrines[target_shrine], msg, i_speak, flag_record_shrine, flag_compute_gematria);
+            var sp = process_shrine(shrines[target_shrine], msg, i_speak, flag_record_shrine, flag_compute_gematria, flag_solve_anagrams);
             i_speak = active_action == 'DIVINE'? sp : true;
 
             if(active_action != 'DIVINE'){
                 var delay2 = Math.random() * 9 * 10e2;
                 setTimeout(function(){
-                    god_speaking(shrines[active_shrine], active_god, active_action, null, flag_record_shrine, flag_compute_gematria);
+                    god_speaking(shrines[active_shrine], active_god, active_action, null, flag_record_shrine, flag_compute_gematria, flag_solve_anagrams);
                 }, delay2);
             }
 
@@ -1193,6 +1219,13 @@ $(document).ready(function(){
 
         });
         $('.shrine-in:first').focus();
+
+
+        $('#solve_anagrams').change(function(){
+            flag_solve_anagrams = $(this).prop('checked');
+            set_setting('flag_solve_anagrams', flag_solve_anagrams);
+        });
+        $('#solve_anagrams').prop('checked', flag_solve_anagrams);
 
         $('#music_switch').change(function(){
             flag_play_music = $(this).prop('checked');
