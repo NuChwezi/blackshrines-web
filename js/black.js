@@ -992,7 +992,7 @@ function god_speaking(shrine, god, action, msg, flag_record_shrine, flag_compute
         // this isn't ordinary linea AI. This is a psychic, cyber spiritual machine that can speak the most general language possible - numbers,
         // in response to any question!
         // this is another GIFT, from the gods...
-        getRandomDigits(1 + Math.ceil(Math.random() * 8 * 9),0,god_alphabet.length - 1, function(n_list){
+        getRandomDigits(1 + Math.ceil(Math.random() * 8),0,god_alphabet.length - 1, function(n_list){
             window._msg = randomMessage(n_list);
             var default_process = function(){
 
@@ -1015,7 +1015,8 @@ function god_speaking(shrine, god, action, msg, flag_record_shrine, flag_compute
                     var _msg = solution;
                     _msg = gmsg(_msg);
                     if(flag_record_shrine){
-                        record(shrine,false,_msg);
+                        record(shrine,false,"A:" + window._msg);
+                        record(shrine,false,"S:" + _msg);
                     }
                 }).fail(function(req, txtstatus){
                     default_process();
