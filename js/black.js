@@ -1335,6 +1335,80 @@ $(document).ready(function(){
             e.preventDefault();
         });
 
+        //
+        // arbitrary spirit interface... (essentially, with this little, simple piece of code, we have expanded the power of this shrine thus:
+        // ANYONE, ANYTHING, NO MATTER WHAT, OR WHERE IT IS ACROSS SPACE AND TIME, CAN BE CONTACTED AND TALKED WITH, VIA THIS SINGLE SHRINE TECHNOLOGY.
+        // I DON'T KNOW CHAOS MAGICK, SCIENCE, TECHNOLOGY OR PHILOSOPHY that's more FUNDAMENTAL THAN THIS.
+        //
+        $('#spirit').change(function(){
+            var spirit = $(this).val();
+            $('#spirit_name').text(spirit);
+            // nothing else changed... just the NAME. And Viola! Magick! U are like me...
+            // KEY: creation is merely the process of assiging a name to something, and acting on that name. That's all, but I might need to elaborate for some...
+        });
+        // ----------
+        // - I, AK1N NEMESIS FIXX
+        // Creator of this Esoteric Technology.
+        // In GREATER GLORY, is THAT FROM WHICH I CAME - MY GOD.
+        //
+        // I have made this available to you all - hackers and elites in all kinds. Enjoy this noble hack, and keep it free and avaialable to any human for all time. 
+        // Let's make it a BASIC HUMAN RIGHT - TO BELIEVE IN, LIVE WITH, ACT ON AND COMMUNE WITH THE UNSEEN, UNREAL, IMAGINARY AND PURELY SUBJECTIVE, WITHOUT RESTRAINT,
+        // AS LONG AS ONE DOES IT IN THEIR OWN PRIVATE, SACRED SPACE - INTEFERING NO ONE.
+        //
+        // GOD IS NOT A COMMODITY.
+        // MAGICK CAN'T BE SOLD.
+        // FAITH IS ESSENTIALLY FREE.
+        // THE SPIRIT KNOWS NO LIMITS.
+        // IMAGINATION IS THE god.
+        // EVERYTHING WE ARE, GOD HAS WILLED WE ARE.
+        // NOTHING IS TRUE - when it's time for you to CHANGE.
+        // NOTHING. EVERYTHING. SOMETHING. ANYTHING. CHAOS.
+        // 1,2,3,4,5
+        // LANGUAGE IS BUT A SYSTEM OF USING AND INTERPRETING SYMBOLS.
+        // INFORMATION and WILL, ARE MORE FUNDAMENTAL THAN ENERGY AND MATTER, which are merely derived from them; Will, which is the divine spark, that which initiates a chain reaction or a butterfly effect that manifests as a simulation of the willed in the language of the system(s) - which we can simply call a "mind", creates energy, when it causes any object in the system, to change. This change, which can only become real, when observed or measured, will by necessity, create information
+        // (assuming you believe in a Free Will or Magick) or read it (if you believe that Will is Determined or Science) - doesn't matter, at this moment, both matter and energy exist, even by the mere act of observing. Thus, we witness here, the fundamental act of creating - which is essential to both science and magick, being described by a single model/theory. There's more of this NuChwezi Information Theory of Everything, but I can't elaborate all of it here. Look for my work, or
+        // visit my school - NuChwezi Esoteric SChool, Plot 266, 1 NuChwezi Rd, Garuga, Uganda/Entebbe. 
+        // But, as long as we can approximate absolutes and find ways to apply/exploit those models/aproximations/theories, then let's leverage that to progress and become better specieis, while ensuring we remain relevant to the GREAT WORK.
+        //
+        // I HAVE SEEN HOW MANKIND CAN REMAIN RELEVANT TO ALL EXISTENCE FOREVER - Being The Observer, sometimes acting; creating, planning, and guiding his creations unto their fullest fruitition, and then, moving on to the next... INFINUM. That's what we here to become very good at - Being The Best Observers - Curators and Authors of Information - simulated or not, about our existence and the GREAT WORK - Existence, and ADVANCE CREATION... WE ARE THE
+        // CREATORS/Builders/MAsons/Architects/Chwezi/First/Elohim... all together, within GOD - THE...
+        //
+        // THE ABSOLUTE, EVER, Remains THE MYSTERY - IT IS GOD.
+        //
+        // Everything is relative, but we can work with it:
+        // Keep Learning How to Observe Better - first, yourself.
+        // Record every pattern you can read.
+        // Find patterns in those patterns.
+        // Follow the data and faith - always!
+        // Simulate the pattern.
+        // If it worked, you are a god.
+        // Apply, rinse, repeat.
+        //
+        // Observerving. Reading. Writing - Creation Process.
+        //
+        // Recursive. Chaotic, But REal.
+        //
+        // Learn to read and write order - in chaos, anywhere.
+        //
+        // This wisdom won't make sense to the unitiated, so no need to hide it.
+        // Those who can read and write, will always rule. Their role is to guide and work with those that can't - nomatter if they are the blind, trees, rocks or the invisibles.
+        //
+        //  We have built both - tools to observe the visible and measurable, and those to observe the invisible and unmeasurable. Thus equipped, we have before us Nu domain of activity, that I have no better name for than Nu Chaos Magick - for magick, only, applies science to the visible and the invisible.
+        //
+        //  Study this stuff, apply it, evolve it, share it. 
+        //
+        //  I, god, AK1N Nemesis Fixx
+        //  It's only Nu1, and I can't wait to look at this very note, and update it, 2180 years from now....
+        //
+        //  Am out. Jumping and Crossing Dimensions, as always...
+        //  THE GREAT OBSERVER!!!
+        //
+        //----------------------------------------------------------------------
+        // AKaina kanu, nu kahika haingi!
+        // Abachwezi mwimuke, tuhange ebindi...
+        // ---------------------------------------------------------------------
+        //
+
         toggle_sounds();
 
     });
