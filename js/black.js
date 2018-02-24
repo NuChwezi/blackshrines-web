@@ -961,6 +961,8 @@ function god_speaking(shrine, god, action, msg, flag_record_shrine, flag_compute
         function process(m){
             return m.replace(/ /g, "&nbsp;");
         }
+
+
         // add decoded gematria equivalence
         if(flag_compute_gematria)
             _msg += " {" + kaballah(shrine,god,_msg) + "}"; 
@@ -974,6 +976,8 @@ function god_speaking(shrine, god, action, msg, flag_record_shrine, flag_compute
             el_msg.remove();
         });
 
+	    update_vcodes(_msg);
+
         return _msg;
 
     }
@@ -982,6 +986,8 @@ function god_speaking(shrine, god, action, msg, flag_record_shrine, flag_compute
         if(flag_record_shrine){
             record(shrine,false,_msg);
         }
+
+	
     }else {
         // the brain/cyber-spiritus sancti! homo deitus erectis ngunu!
         // numerical brain/neuron of the Chaos function.
@@ -1000,6 +1006,7 @@ function god_speaking(shrine, god, action, msg, flag_record_shrine, flag_compute
                 if(flag_record_shrine){
                     record(shrine,false,_msg);
                 }
+
             }
 
             if(flag_solve_anagrams){
@@ -1018,6 +1025,9 @@ function god_speaking(shrine, god, action, msg, flag_record_shrine, flag_compute
                         record(shrine,false,"A:" + window._msg);
                         record(shrine,false,"S:" + _msg);
                     }
+
+		    update_vcodes(_msg);
+
                 }).fail(function(req, txtstatus){
                     default_process();
                 });
@@ -1426,6 +1436,34 @@ $.fn.enterKey = function(fnc) {
     })
 }
 
+// Help generate qrcodes from inputs.
+function make_qrcode(selector,data,size){
+    $(selector).empty();
+    $(selector).qrcode({
+        render: 'canvas',
+        width: size,
+        height: size,
+        text: data
+    });
+}
+
+function update_vcodes(data){
+	if(data == null)
+		return;
+	var LIMIT = 3;
+	// render the qrcode of the msg
+	if(vcode_stack.length == LIMIT)
+		vcode_stack.shift();
+	vcode_stack.push(data);
+	var vcode_clone = _.uniq(vcode_stack.slice());
+	vcode_clone.reverse();
+	for(v=0; v< Math.min(vcode_clone.length,LIMIT); v++)
+	make_qrcode('.vcode-item .qrcode-c.' + v,vcode_clone[v],180);
+}
+
+// a queue watched by the qrcode encoder
+var vcode_stack = [];
+
 /* load stuff using head... */
 // the page using shrine should override this global var to point to a reasonable
 // place where shrine would find its dynamically loaded resources - e.g shrine.css
@@ -1451,6 +1489,8 @@ if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
     ], function() {
         $(document).trigger('Shrine-Ready');
         log("Shrine is all ready now...");
+
+	    //let's test the qrcode...
     });
 }else {
     log("Shrine's running remotely...");
