@@ -222,6 +222,31 @@ input.check-switch{
     color: #ab00ff;
     font-family: cipher_vmlxs;
 }
+
+/*------ ADONAI ------+*/
+.shrine.god-ADONAI{
+    background-color:rgba(91, 243, 199, 0.48);
+    color:#0a5d3b;
+    border-color:#0cc77b;
+    /* for shrine sigil */
+    background-image: url(../images/sigils/adonai.png);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-position-y: 20px;
+    /* end sigil */
+}
+.god-ADONAI .cipher{
+    color: #02150d;
+    font-family: cipher_MftHlgs;
+    font-weight: bold;
+}
+.god-ADONAI .god-msg{
+    color:#0a5d3b;
+    font-family: cipher_MftHlgs;
+}
+/*------ ADONAI ------+*/
+
+
 .shrine.god-TAHUTI{
     background-color:rgba(91, 243, 199, 0.48);
     color:#0a5d3b;

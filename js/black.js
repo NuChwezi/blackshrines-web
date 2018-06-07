@@ -588,6 +588,9 @@ var SOUND_RES = {
             'sounds/music/satan/Blut Aus Nord - The Howling Of God.mp3',
             'sounds/music/satan/Daemonarch - The Seventh Daemonarch.mp3',
         ],
+        'ADONAI': [
+            'sounds/music/ADONAI/Globus - Spiritus Khayyam.mp3',
+        ],
         'TAHUTI': [
             'sounds/music/tahuti/Enigma - Goodbye Milky Way.mp3',
             'sounds/music/tahuti/Dead Can Dance - Agape.mp3',
@@ -730,6 +733,14 @@ function show_shrine_records(){
 }
 
 var mantras = {
+    'ADONAI': [
+        "AS ABOVE SO IT IS BELOW",
+        "AS WITHIN, SO WITHOUT",
+        "YOU ARE THEIR LORD",
+        "LOVE YOUR LIFE",
+        "BE EMPOWERED, NOW!!!",
+        "ALIVE",
+    ],
     'TAHUTI': [
         "AS ABOVE SO IT IS BELOW",
         "ALL POWER IS WITHIN U",
