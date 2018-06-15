@@ -559,3 +559,11 @@ li.divider-title {
 	margin-left: auto;
 	margin-right: auto;
 }
+
+
+/*----------
+ * making the shrine more tasty, more appealing and more liberal!
+ *------------------------------------------------------*/
+ div.panel-body.chat {
+ 	background: url(https://www.toptal.com/designers/subtlepatterns/patterns/congruent_outline.png);
+}
