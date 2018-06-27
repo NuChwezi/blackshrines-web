@@ -222,6 +222,31 @@ input.check-switch{
     font-family: cipher_vmlxs;
 }
 
+
+/*------ I ------+*/
+.shrine.god-I{
+    background-color:rgba(91, 243, 199, 0.48);
+    color:#0a5d3b;
+    border-color:#0cc77b;
+    /* for shrine sigil */
+    background-image: url(../images/sigils/I.png);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-position-y: 20px;
+    /* end sigil */
+}
+.god-I .cipher{
+    color: #02150d;
+    font-family: cipher_MftHlgs;
+    font-weight: bold;
+}
+.god-I .god-msg{
+    color:#0a5d3b;
+    font-family: cipher_roofnrmzgr;
+}
+/*------ I ------+*/
+
+
 /*------ ADONAI ------+*/
 .shrine.god-ADONAI{
     background-color:rgba(91, 243, 199, 0.48);
