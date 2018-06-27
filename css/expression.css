@@ -1,5 +1,5 @@
 /*
- * Occult CIPHERS - languages of the black gods.
+ * Occult CIPHERS 
  *
  * */
 @font-face {
@@ -50,7 +50,7 @@
 }
 
 /*
- * OFFERINGS, cREATURES, things to offer to the gods, or what the gods would offer to us.
+ * OFFERINGS, cREATURES, things to offer in sacrifice
  *
  * */
 
@@ -150,14 +150,13 @@ input.check-switch{
 
 
 /***************************
- * THE GODS  : 
- *
+ * God's Forms:
  * color correspondences attempt to echo Hermetic principles (elements, see Liber 777)
  *
  * *************************/
 
 .shrine.god-GOD{
-    background-color: rgba(247, 196, 196, 0.32); /*rgba(175, 19, 19, 0.32);*/
+    background-color: rgba(255,255,255,.38); /*rgba(247, 196, 196, 0.32); /*rgba(175, 19, 19, 0.32);*/
     color: crimson;
     border-color: crimson;
 
