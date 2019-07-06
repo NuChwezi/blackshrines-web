@@ -10,6 +10,10 @@
     font-family: Pagani;
     src: url(fonts/pagani.ttf);
 }
+@font-face {
+    font-family: cipher_ufurugiymyluwb;
+    src: url(fonts/cipher_ufurugiymyluwb.ttf);
+}
 
 @font-face {
     font-family: cipher_roofnrmzgr;
@@ -327,17 +331,6 @@ input.check-switch{
     font-size: 50px;
 }
 
-.god-NYAMIYONGA .god-msg{
-    color: #d4cdb9;
-    font-family: cipher_orevi321;
-    font-size: 50px;
-    /* for shrine sigil */
-    background-image: url(../images/sigils/baphomet.png);
-    background-position: top;
-    background-repeat: no-repeat;
-    background-position-y: 20px;
-    /* end sigil */
-}
 .shrine.god-RUHANGA_KITARA_MUSANA{
     background-color: rgba(166, 235, 255, 0.62);
     color: #170115;
@@ -469,6 +462,35 @@ input.check-switch{
 }
 @media (max-width:768px) {
     .god-BAPHOMET .cipher{
+        font-size: 36px;
+    }
+}
+
+.shrine.god-ALLSELF{
+    background-color: rgba(239, 17, 17, 0.63);
+    color: #ffd8d8;
+    border-color:#ffd8d8;
+    /* for shrine sigil */
+    background-image: url(../images/sigils/allah.png);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-position-y: 20px;
+    /* end sigil */
+}
+
+.god-ALLSELF .cipher{
+    color: #ffd8d8;
+    font-family: cipher_ufurugiymyluwb;
+    font-size: 49px;
+}
+
+.god-ALLSELF .god-msg{
+    color: rgba(109, 115, 113, 0.97);
+    font-family: cipher_ufurugiymyluwb;
+    font-size: 80px;
+}
+@media (max-width:768px) {
+    .god-ALLSELF .cipher{
         font-size: 36px;
     }
 }

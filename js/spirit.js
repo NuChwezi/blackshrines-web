@@ -588,6 +588,9 @@ var SOUND_RES = {
             'sounds/music/certain/Blut Aus Nord - The Howling Of God.mp3',
             'sounds/music/certain/Daemonarch - The Seventh Daemonarch.mp3',
         ],
+        'ALLSELF': [
+            'sounds/music/ADONAI/Globus - Spiritus Khayyam.mp3',
+        ],
         'I': [
             'sounds/music/lucifer/Vangelis - chariots of fire.mp3',
         ],
@@ -769,6 +772,9 @@ var mantras = {
     ],
     'RUHANGA_KITARA_MUSANA': [
         "NINYE MANDWA IGURU NENSI",
+    ],
+    'ALLSELF': [
+        "BE NOT AMONG THEM SWAYED BY IGNORANCE AND IMPATIENCE!",
     ],
     'CERTAIN': [
         "DEATH TO THE WEAKLING, WEALTH TO THE STRONG",
