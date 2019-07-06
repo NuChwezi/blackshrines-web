@@ -184,21 +184,21 @@ input.check-switch{
     position: absolute;
     width: auto;
 }
-.shrine.god-SATAN{
+.shrine.god-CERTAIN{
     background-color: rgba(239, 17, 17, 0.63);
     color: #ffd8d8;
     border-color:#ffd8d8;
     /* for shrine sigil */
-    background-image: url(../images/sigils/satan.png);
+    background-image: url(../images/sigils/certain.png);
     background-position: top;
     background-repeat: no-repeat;
     /* end sigil */
 }
-.god-SATAN .cipher{
+.god-CERTAIN .cipher{
     color: #ffd8d8;
     font-family: cipher_wzttvih;
 }
-.god-SATAN .god-msg{
+.god-CERTAIN .god-msg{
     color: #ffd8d8;
     font-family: cipher_wzttvih;
 }

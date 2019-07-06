@@ -558,13 +558,13 @@ var SOUND_RES = {
             'sounds/music/beast/Gregorian- The fourhorsemen.mp3',
             'sounds/music/beast/DJ Zany and MC DV8 - The Anthem.mp3',
         ],
-        'SATAN': [
-            'sounds/music/satan/Gay Satanic Hippie - Bauchweh.mp3',
-            'sounds/music/satan/The Serpent - Ksiazki.mp3',
-            'sounds/music/satan/Blut Aus Nord - The Howling Of God.mp3',
-            'sounds/music/satan/Daemonarch - The Seventh Daemonarch.mp3',
-            'sounds/music/satan/D12 - Devils Night.mp3',
-            'sounds/music/satan/Gregorian - Ave Satani (the Omen).mp3',
+        'CERTAIN': [
+            'sounds/music/certain/Gay Satanic Hippie - Bauchweh.mp3',
+            'sounds/music/certain/The Serpent - Ksiazki.mp3',
+            'sounds/music/certain/Blut Aus Nord - The Howling Of God.mp3',
+            'sounds/music/certain/Daemonarch - The Seventh Daemonarch.mp3',
+            'sounds/music/certain/D12 - Devils Night.mp3',
+            'sounds/music/certain/Gregorian - Ave Satani (the Omen).mp3',
         ],
         'LUCIFER': [
             'sounds/music/lucifer/Ghost - He Is.mp3',
@@ -583,10 +583,10 @@ var SOUND_RES = {
         ],
         'BAPHOMET': [
             'sounds/music/daemon/Pavo_-_Raven.mp3',
-            'sounds/music/satan/Gay Satanic Hippie - Bauchweh.mp3',
-            'sounds/music/satan/The Serpent - Ksiazki.mp3',
-            'sounds/music/satan/Blut Aus Nord - The Howling Of God.mp3',
-            'sounds/music/satan/Daemonarch - The Seventh Daemonarch.mp3',
+            'sounds/music/certain/Gay Satanic Hippie - Bauchweh.mp3',
+            'sounds/music/certain/The Serpent - Ksiazki.mp3',
+            'sounds/music/certain/Blut Aus Nord - The Howling Of God.mp3',
+            'sounds/music/certain/Daemonarch - The Seventh Daemonarch.mp3',
         ],
         'I': [
             'sounds/music/lucifer/Vangelis - chariots of fire.mp3',
@@ -770,7 +770,7 @@ var mantras = {
     'RUHANGA_KITARA_MUSANA': [
         "NINYE MANDWA IGURU NENSI",
     ],
-    'SATAN': [
+    'CERTAIN': [
         "DEATH TO THE WEAKLING, WEALTH TO THE STRONG",
         "I STAND FORTH TO CHALLENGE THE WISDOM OF THE WORLD",
         "I QUESTION ALL THINGS",
