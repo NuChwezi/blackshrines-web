@@ -76,7 +76,8 @@ body {
 }
 
 a {
-    color:#f3cf0a;
+    /* retired: color:#f3cf0a; */
+    color:#9c27b0;
     text-decoration: none;
 }
 
