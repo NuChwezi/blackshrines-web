@@ -332,7 +332,7 @@ input.check-switch{
     font-size: 50px;
 }
 
-.shrine.god-RUHANGA_KITARA_MUSANA{
+.shrine.god-KITARA{
     background-color: rgba(166, 235, 255, 0.62);
     color: #170115;
     border-color:#170115;
@@ -343,10 +343,10 @@ input.check-switch{
     background-position-y: 20px;
     /* end sigil */
 }
-.god-RUHANGA_KITARA_MUSANA .cipher{
+.god-KITARA .cipher{
     color: #170115;
 }
-.god-RUHANGA_KITARA_MUSANA .god-msg{
+.god-KITARA .god-msg{
     color: #170115;
 }
 .shrine.god-LEVIATAN{
