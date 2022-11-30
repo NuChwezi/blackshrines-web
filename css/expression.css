@@ -258,7 +258,7 @@ input.check-switch{
     color:#0a5d3b;
     border-color:#0cc77b;
     /* for shrine sigil */
-    background-image: url(../images/sigils/adonai.png);
+    background-image: url(../images/sigils/hexagram.png);
     background-position: top;
     background-repeat: no-repeat;
     background-position-y: 20px;
@@ -330,6 +330,28 @@ input.check-switch{
     color: #afafaf;
     font-family: cipher_orevi321;
     font-size: 50px;
+}
+
+
+
+.shrine.god-YAHSHUA{
+    background-color: rgba(158, 158, 158, 0.56);
+    color: white;
+    border-color: white;
+    /* for shrine sigil */
+    background-image: url(../images/sigils/cross.png);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-position-y: 20px;
+    /* end sigil */
+}
+.god-YAHSHUA .cipher{
+    color: #4e0e07;
+    font-family: cipher_roofnrmzgr;
+}
+.god-YAHSHUA .god-msg{
+    color: #4e0e07;
+    font-family: cipher_roofnrmzgr;
 }
 
 .shrine.god-KITARA{

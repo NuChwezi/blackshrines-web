@@ -558,6 +558,12 @@ var SOUND_RES = {
             'sounds/music/beast/Gregorian- The fourhorsemen.mp3',
             'sounds/music/beast/DJ Zany and MC DV8 - The Anthem.mp3',
         ],
+        'YAHSHUA': [
+            'sounds/music/yahshua/itende.mp3',
+            'sounds/music/yahshua/itende2.mp3',
+            'sounds/music/yahshua/Back to Earth - Elysium.mp3',
+            'sounds/music/yahshua/Nirvana.mp3',
+        ],
         'CERTAIN': [
             'sounds/music/certain/Gay Satanic Hippie - Bauchweh.mp3',
             'sounds/music/certain/The Serpent - Ksiazki.mp3',
@@ -772,6 +778,11 @@ var mantras = {
     ],
     'KITARA': [
         "NINYOWE MAANI MU IGURU NENSI",
+    ],
+    'YAHSHUA': [
+        "I AM THE WAY",
+        "I AM THE TRUTH",
+        "I AM THE LIGHT",
     ],
     'ALLSELF': [
         "BE NOT AMONG THEM SWAYED BY IGNORANCE AND IMPATIENCE!",
