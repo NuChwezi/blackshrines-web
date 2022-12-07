@@ -563,7 +563,7 @@ var SOUND_RES = {
             'sounds/music/yahshua/itende2.mp3',
             'sounds/music/yahshua/Back to Earth - Elysium.mp3',
             'sounds/music/yahshua/Nirvana.mp3',
-            'sounds/music/yahshua/classic_afro_spiritual_warship_themes.mp3',
+            'sounds/music/yahshua/classic_afro_spiritual_warship_themes.ogg',
         ],
         'CERTAIN': [
             'sounds/music/certain/Gay Satanic Hippie - Bauchweh.mp3',
@@ -600,7 +600,7 @@ var SOUND_RES = {
         ],
         'I': [
             'sounds/music/lucifer/Vangelis - chariots of fire.mp3',
-            'sounds/music/yahshua/classic_afro_spiritual_warship_themes.mp3',
+            'sounds/music/yahshua/classic_afro_spiritual_warship_themes.ogg',
         ],
         'ADONAI': [
             'sounds/music/ADONAI/Globus - Spiritus Khayyam.mp3',
