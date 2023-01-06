@@ -558,7 +558,7 @@ var SOUND_RES = {
             'sounds/music/beast/Gregorian- The fourhorsemen.mp3',
             'sounds/music/beast/DJ Zany and MC DV8 - The Anthem.mp3',
         ],
-        'YAHSHUA': [
+        'YEHESHUA': [
             'sounds/music/yahshua/itende.mp3',
             'sounds/music/yahshua/itende2.mp3',
             'sounds/music/yahshua/Back to Earth - Elysium.mp3',
@@ -787,7 +787,7 @@ var mantras = {
         "OMU WENKA",
         "HANSI NKOMWIGURU",
     ],
-    'YAHSHUA': [
+    'YEHESHUA': [
         "I AM THE WAY",
         "I AM THE TRUTH",
         "I AM THE LIGHT",
