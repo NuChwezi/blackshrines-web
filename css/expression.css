@@ -167,7 +167,7 @@ input.check-switch{
 
 
     /* for shrine sigil */
-    background-image: url(../images/sigils/chaosstar.png);
+    background-image: url(../images/sigils/chaos.png);
     background-position: top;
     background-repeat: no-repeat;
     background-position-y: 20px;
@@ -435,7 +435,7 @@ input.check-switch{
     color: rgba(111, 82, 61, 0.97);
     border-color: rgba(109, 115, 113, 0.97);
     /* for shrine sigil */
-    background-image: url(../images/sigils/daemon.png);
+    background-image: url(../images/sigils/daemonaeus.png);
     background-position: top;
     background-repeat: no-repeat;
     background-position-y: 20px;
