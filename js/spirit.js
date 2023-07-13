@@ -795,6 +795,7 @@ var mantras = {
         "LOVE",
         "PEACE",
     ],
+    /* nothing to do with traditional islam... */
     'ALLSELF': [
         "BE NOT AMONG THEM SWAYED BY IGNORANCE AND IMPATIENCE!",
         "SALAM",
