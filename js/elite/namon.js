@@ -16,11 +16,5 @@ $(document).ready(function() {
         "I BLESS YOU. GO ON, BE WEALTHY!",
     ];
 
-    if (location.hostname === "localhost" || location.hostname === "127.0.0.1") 
-    {
-        // nothing much for now... except, no access to any special shrines anymore
-    } else {
-        $('#gods-list').empty();
-    }
     $('#gods-list').prepend('<li><a href="#">NAMON</a></li>');
 });

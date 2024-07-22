@@ -1533,6 +1533,10 @@ if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
 }else {
     log("Shrine's running remotely...");
 
+
+    // ACCESS DENIED to YE INFIDELS..
+    $('#gods-list').empty();
+
     head.load([// our own css
             //"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js", /* JQuery JS */
             "https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.1/howler.min.js", /* Howler JS */
