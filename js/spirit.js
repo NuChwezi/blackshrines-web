@@ -1546,7 +1546,7 @@ if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
     ], function() {
 
         // ACCESS DENIED to YE INFIDELS..
-        $('#gods-list').empty();
+        //$('#gods-list').empty(); // forgiv them
 
         $(document).trigger('Shrine-Ready');
         log("Shrine is all ready now...");
