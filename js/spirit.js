@@ -622,7 +622,7 @@ var SOUND_RES = {
             'sounds/music/belial/Blut Aus Nord - Ultima Thule - My Prayer Beyond Ginnungagap.mp3',
             'sounds/music/belial/Minds Of Infinity - First Human.mp3',
         ],
-        'KITARA': [
+        'AHA': [
             'sounds/music/RUHANGA_KITARA_MUSANA/Deep Forest - New Dawn.mp3',
             'sounds/music/RUHANGA_KITARA_MUSANA/Dead Can Dance - Ariadne.mp3',
             'sounds/music/RUHANGA_KITARA_MUSANA/The Kamkars - Chant of Drums.mp3',
@@ -782,10 +782,10 @@ var mantras = {
         "I CALL UPON YOU TO RISE IN GLORY",
         "BEHOLD THE GENIUS OF YOUR CREATION",
     ],
-    'KITARA': [
-        "TUNGA EKYEREREZI",
+    'AHA': [
+        "NSORO Y'EKYEREREZI",
         "OMU WENKA",
-        "HANSI NKOMWIGURU",
+        "MUNSI N'OMWIGURU",
     ],
     'YEHESHUA': [
         "I AM THE WAY",
