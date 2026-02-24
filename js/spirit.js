@@ -573,6 +573,7 @@ var SOUND_RES = {
             'sounds/music/certain/Daemonarch - The Seventh Daemonarch.mp3',
             'sounds/music/certain/D12 - Devils Night.mp3',
             'sounds/music/certain/Gregorian - Ave Satani (the Omen).mp3',
+            'sounds/music/certain/You Are Certain.mp3',
         ],
         'LUCIFER': [
             'sounds/music/lucifer/Ghost - He Is.mp3',
@@ -588,6 +589,7 @@ var SOUND_RES = {
             'sounds/music/daemon/Terror Squad - Tripple Threat.mp3',
             'sounds/music/daemon/Pavo_-_Raven.mp3',
             'sounds/music/daemon/Brennan Heart - we are possessed ( headhunterz remix ).mp3',
+            'sounds/music/daemon/MUMBALE - Emisambwa.mp3',
         ],
         'BAPHOMET': [
             'sounds/music/daemon/Pavo_-_Raven.mp3',
@@ -595,6 +597,7 @@ var SOUND_RES = {
             'sounds/music/certain/The Serpent - Ksiazki.mp3',
             'sounds/music/certain/Blut Aus Nord - The Howling Of God.mp3',
             'sounds/music/certain/Daemonarch - The Seventh Daemonarch.mp3',
+            'sounds/music/baphomet/GORRATE - Baphomet.mp3',
         ],
         'ALLSELF': [
             'sounds/music/ADONAI/Globus - Spiritus Khayyam.mp3',
@@ -628,6 +631,7 @@ var SOUND_RES = {
             'sounds/music/RUHANGA_KITARA_MUSANA/The Kamkars - Chant of Drums.mp3',
             'sounds/music/RUHANGA_KITARA_MUSANA/XTribe - African Drum.mp3',
             'sounds/music/RUHANGA_KITARA_MUSANA/Ancient Egyptian Music - Creator Sun God Instrumental III-IV.mp3',
+            'sounds/music/daemon/MUMBALE - Emisambwa.mp3',
         ],
         'NYAMIYONGA': [
             'sounds/music/nyamiyonga/Monumentum - Fade To Gray.mp3',
